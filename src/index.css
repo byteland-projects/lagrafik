@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/* Opcional: Configuración base para que coincida con tu diseño oscuro */
+body {
+  background-color: #0f121e; /* El color de fondo de tu barra de navegación */
+  color: white;              /* Texto blanco por defecto */
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+@theme {
+  /* 1. Defines el color con una variable de CSS */
+  --color-neon-pink: #ff2e63;
+  --color-dark-navy: #0f121e;
+  
+  /* 2. También puedes definir fuentes */
+  --font-display: "Poppins", sans-serif;
+  
+  /* 3. O tamaños de espaciado */
+  --spacing-128: 32rem;
+}
