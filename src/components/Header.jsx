@@ -1,9 +1,9 @@
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-12 py-6 bg-dark-navy">
+    <header className="flex items-center justify-between px-12 py-6 bg-bg-dark z-150 fixed w-full top-0 left-0">
       {/* Logo: "La" en rosa y "Grafi-K" con degradado */}
       <div className="text-2xl font-bold select-none">
-        <span className="text-neon-pink">La </span>
+        <span className="text-pink-main">La </span>
         <span className="bg-linear-to-r from-[#a044ff] to-[#2d8eff] bg-clip-text text-transparent">
           Grafi-K
         </span>

@@ -1,21 +1,32 @@
 @import "tailwindcss";
 
-/* Opcional: Configuración base para que coincida con tu diseño oscuro */
+/* Fondo oscuro base */
 body {
-  background-color: #0f121e; /* El color de fondo de tu barra de navegación */
-  color: white;              /* Texto blanco por defecto */
+  background-color: #0f121e; 
+  color: #E0E0E0;            
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 @theme {
-  /* 1. Defines el color con una variable de CSS */
-  --color-neon-pink: #ff2e63;
-  --color-dark-navy: #0f121e;
-  
-  /* 2. También puedes definir fuentes */
-  --font-display: "Poppins", sans-serif;
-  
-  /* 3. O tamaños de espaciado */
-  --spacing-128: 32rem;
+  /* Colores principales (del logo) */
+  --color-pink-main: #FF3B8D;
+  --color-blue-main: #2D9CDB;
+  --color-yellow-main: #FFC107;
+  --color-green-main: #25D366;
+
+  /* Colores de fondo */
+  --color-bg-dark: #0F121E;
+  --color-bg-1: #121826;
+  --color-bg-2: #1E2A3A;
+
+  /* Colores de texto */
+  --color-text-dark: #333333;
+  --color-text-light: #E0E0E0;
+  --color-text-mid: #AAAAAA;
+  --color-text-extra-light: #F8F9FA;
+
+  /* Fuentes */
+  --font-title: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
