@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
             <a
               href="#contacto"
-              className="px-8 py-4 bg-gray-900 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition-all transform hover:-translate-y-1"
+              className="px-4 py-2 md:px-8 md:py-4 bg-gray-900 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition-all transform hover:-translate-y-1"
             >
               Pedir Presupuesto
             </a>
@@ -34,7 +34,7 @@ export default function Hero() {
             <div className="rounded-full p-[4px] bg-gradient-to-r from-pink-main via-blue-main to-yellow-main">
               <a
                 href="#productos"
-                className="block px-8 py-4 bg-white text-gray-900 font-bold rounded-full hover:text-pink-main transition"
+                className="block px-4 py-2 md:px-8 md:py-4 bg-white text-gray-900 font-bold rounded-full hover:text-pink-main transition"
               >
                 Ver Productos
               </a>
@@ -47,7 +47,7 @@ export default function Hero() {
           <img
             src="/logo.png"
             alt="Logo La Grafi-K"
-            className="w-72 h-72 md:w-96 md:h-96 object-contain z-10 animate-float"
+            className="w-60 h-50 sm:w-76 sm:h-76 md:w-96 md:h-96 object-contain z-10 animate-float"
           />
         </div>
       </div>
