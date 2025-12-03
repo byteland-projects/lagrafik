@@ -1,36 +1,53 @@
-import Button from "./Button";
-import fondo from "../assets/hero-bg.jpg";
-
-function Hero() {
+export default function Hero() {
   return (
-    <section
-      id="inicio"
-      className="flex flex-col items-center justify-center min-h-screen bg-var(--color-bg-1) text-var(--color-text-light) px-4"
+    <section 
+      id="inicio" 
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-yellow-50"
     >
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: `url('${fondo}')` }}
-      />
-      <div className="absolute inset-0 z-0 bg-linear-to-b from-black/70 via-black/80 to-[#020202]" />
+      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        {/* Columna Izquierda */}
+        <div className="space-y-6 text-center md:text-left animate-fade-in-up">
+          <h2 className="text-sm md:text-base font-bold tracking-widest text-gray-500 uppercase">
+            Imprenta Gráfica Profesional
+          </h2>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
+            Tus ideas en <br/>
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main">
+              Alta Resolución
+            </span>
+          </h1>
+          
+          <p className="text-md text-gray-600 max-w-lg mx-auto md:mx-0">
+            Desde tarjetas de presentación hasta gigantografías. Calidad, rapidez y los colores más vivos para tu negocio.
+          </p>
 
-          <div className="relative place-items-center gap-12 lg:gap-16 max-w-7xl w-full z-10 items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+            <a 
+              href="#contacto" 
+              className="px-8 py-4 bg-gray-900 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition-all transform hover:-translate-y-1"
+            >
+              Pedir Presupuesto
+            </a>
+            <a 
+              href="#productos" 
+              className="px-8 py-4 bg-white text-gray-900 border-2 border-blue-main font-bold rounded-full hover:border-pink-main hover:text-pink-main transition-all"
+            >
+              Ver Productos
+            </a>
+          </div>
+        </div>
 
-      <h1 className="text-3xl lg:text-5xl font-title font-extrabold text-center mb-8">
-        La publicidad es{" "}
-        <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-main to-yellow-main">
-          la mejor inversión
-        </span>
-        <br></br>
-        para tu negocio.
-      </h1>
-      <p className="text-lg text-center text-text-mid mb-12 max-w-2xl">
-        En La Grafik te ayudamos a crear materiales gráficos de alta calidad que
-        realmente generen resultados.
-      </p>
-      <Button nombre={"Ver productos"} />
-    </div>
+        {/* Columna Derecha: Logo */}
+        <div className="relative flex justify-center items-center">
+          <img 
+            src="/logoPlano.png" 
+            alt="Logo La Grafi-K" 
+            className="w-72 h-72 md:w-96 md:h-96 object-contain z-10 animate-float"
+          />
+        </div>
+      </div>
     </section>
   );
 }
-
-export default Hero;
