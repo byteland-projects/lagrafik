@@ -31,10 +31,10 @@ export default function Header() {
 
   // Definición de links con sus colores específicos para mantener la identidad visual
   const navLinks = [
-    { id: 'inicio', label: 'Inicio', colorText: 'text-pink-main', colorBg: 'bg-pink-main' },
-    { id: 'nosotros', label: 'Nosotros', colorText: 'text-blue-main', colorBg: 'bg-blue-main' },
-    { id: 'productos', label: 'Productos', colorText: 'text-yellow-main', colorBg: 'bg-yellow-main' }, // Nota: el amarillo sobre blanco a veces necesita sombra o ser más oscuro
-    { id: 'contacto', label: 'Contacto', colorText: 'text-green-main', colorBg: 'bg-green-main' },
+    { id: 'inicio', label: 'Inicio', colorText: 'text-pink-main', gradientClass: 'via-pink-main' },
+    { id: 'nosotros', label: 'Nosotros', colorText: 'text-blue-main', gradientClass: 'via-blue-main' },
+    { id: 'productos', label: 'Productos', colorText: 'text-yellow-main', gradientClass: 'via-yellow-main' }, // Nota: el amarillo sobre blanco a veces necesita sombra o ser más oscuro
+    { id: 'contacto', label: 'Contacto', colorText: 'text-green-main', gradientClass: 'via-green-main' },
   ];
 
   return (
@@ -70,7 +70,8 @@ export default function Header() {
                 {/* Línea inferior: Se muestra en Hover O si está Activo */}
                 <div className={`
                   absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 transition-all duration-300
-                  bg-linear-to-r from-transparent via-${link.colorBg.replace('bg-', '')} to-transparent
+                  /* Aquí usamos la clase completa, sin reemplazos de strings */
+                  bg-linear-to-r from-transparent ${link.gradientClass} to-transparent
                   ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'}
                 `}></div>
               </li>

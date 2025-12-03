@@ -42,7 +42,7 @@ export default function Hero() {
         {/* Columna Derecha: Logo */}
         <div className="relative flex justify-center items-center">
           <img 
-            src="/logoPlano.png" 
+            src="/logo.png" 
             alt="Logo La Grafi-K" 
             className="w-72 h-72 md:w-96 md:h-96 object-contain z-10 animate-float"
           />
