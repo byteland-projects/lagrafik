@@ -10,13 +10,13 @@ body {
 
 @theme {
   /* Colores principales (del logo) */
-  --color-pink-main: #FF3B8D;
-  --color-blue-main: #2D9CDB;
-  --color-yellow-main: #FFC107;
-  --color-green-main: #25D366;
+  --color-pink-main: #FF0099;   /* Magenta */
+  --color-blue-main: #00AEEF;   /* Cyan */
+  --color-yellow-main: #FFEA00; /* Amarillo */
+  --color-green-main: #00D664;  /* Verde (opcional/complementario) */
 
-  /* Colores de fondo */
-  --color-bg-dark: #0F121E;
+  /* Color de fondo */
+  --color-bg-dark: #0f172a;
   --color-bg-1: #121826;
   --color-bg-2: #1E2A3A;
 
@@ -29,4 +29,46 @@ body {
   /* Fuentes */
   --font-title: "Montserrat", sans-serif;
   --font-body: "Inter", sans-serif;
+}
+
+
+
+/* Animaciones para el Hero */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+}
+
+/* Animación simple de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
