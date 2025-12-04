@@ -1,4 +1,4 @@
-import grafica from "../assets/grafica.jpg";
+import grafica from "../assets/grafica.jpeg";
 
 function About() {
   return (
