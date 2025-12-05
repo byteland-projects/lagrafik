@@ -4,7 +4,7 @@ function Click() {
   return (
     <section
       id="click"
-      className="relative py-15 px-6 text-text-light overflow-hidden"
+      className="relative py-10 px-6 text-text-light overflow-hidden"
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
@@ -17,12 +17,12 @@ function Click() {
           La primera impresión es la que cuenta
         </h2>
 
-        <div className="rounded-xl p-[2px] bg-linear-to-r from-pink-main to-yellow-main inline-block">
+        <div className="rounded-4xl p-[2px] bg-linear-to-r from-pink-main to-yellow-main inline-block">
           <button
-            className="px-6 py-3 rounded-xl bg-bg-dark text-text-light font-semibold 
+            className="px-6 py-3 rounded-4xl bg-bg-dark text-text-light font-semibold 
         hover:opacity-90 transition"
           >
-            Contactar
+            Contactanos
           </button>
         </div>
       </div>
