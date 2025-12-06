@@ -1,4 +1,7 @@
-import imagenMenu from "../assets/tarjeta.avif";
+import imagenMenu from "../assets/menudigital.png";
+import imagenFlyer from "../assets/flyers.png";
+import imagenLogo from "../assets/logos.png";
+import imagenFolleto from "../assets/folletos.png";
 import imagenFisico from "../assets/grafica.jpg";
 import { useState } from "react";
 import ModalProducto from "./ModalProducto";
@@ -19,7 +22,7 @@ const productosDigitales = [
     descripcion: "Flyers listos para publicar y atraer más clientes.",
     detalle:
       "Diseños pensados para captar atención y comunicar tus promos sin perder tiempo. Ideales para redes y WhatsApp.",
-    imagen: imagenMenu,
+    imagen: imagenFlyer,
   },
   {
     id: 3,
@@ -27,7 +30,7 @@ const productosDigitales = [
     descripcion: "Un logo profesional que represente tu marca.",
     detalle:
       "Creamos un logo estético y funcional, pensado para destacar y transmitir la identidad de tu negocio.",
-    imagen: imagenMenu,
+    imagen: imagenLogo,
   },
 ];
 
@@ -38,7 +41,7 @@ const productosFisicos = [
     descripcion: "La forma más directa y económica de llegar a tus vecinos.",
     detalle:
       "Los folletos permiten difundir tu negocio a todos los hogares de tu zona, incluso sin redes sociales.",
-    imagen: imagenFisico,
+    imagen: imagenFolleto,
   },
   {
     id: 5,
