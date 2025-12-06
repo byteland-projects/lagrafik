@@ -27,12 +27,7 @@ const productosDigitales = [
 ];
 
 const productosFisicos = [
-  {
-    id: 4,
-    nombre: "Folletos",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
+  { id: 4, nombre: "Folletos", descripcion: "Texto.", imagen: imagenFisico },
   {
     id: 5,
     nombre: "Tarjetas personales",
@@ -45,107 +40,68 @@ const productosFisicos = [
     descripcion: "Texto.",
     imagen: imagenFisico,
   },
-  {
-    id: 7,
-    nombre: "Sticker",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
+  { id: 7, nombre: "Sticker", descripcion: "Texto.", imagen: imagenFisico },
   {
     id: 8,
     nombre: "Recetarios/Planillas/Comprobantes",
     descripcion: "Texto.",
     imagen: imagenFisico,
   },
-  {
-    id: 9,
-    nombre: "Banners",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
+  { id: 9, nombre: "Banners", descripcion: "Texto.", imagen: imagenFisico },
   {
     id: 10,
     nombre: "Señalización",
     descripcion: "Texto.",
     imagen: imagenFisico,
   },
-  {
-    id: 11,
-    nombre: "Pancartas",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
-  {
-    id: 12,
-    nombre: "Plotter",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
-  {
-    id: 13,
-    nombre: "Fotos",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
-  {
-    id: 14,
-    nombre: "Etiquetas",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
+  { id: 11, nombre: "Pancartas", descripcion: "Texto.", imagen: imagenFisico },
+  { id: 12, nombre: "Plotter", descripcion: "Texto.", imagen: imagenFisico },
+  { id: 13, nombre: "Fotos", descripcion: "Texto.", imagen: imagenFisico },
+  { id: 14, nombre: "Etiquetas", descripcion: "Texto.", imagen: imagenFisico },
   {
     id: 15,
     nombre: "Plastificados",
     descripcion: "Texto.",
     imagen: imagenFisico,
   },
-  {
-    id: 16,
-    nombre: "Llaveros",
-    descripcion: "Texto.",
-    imagen: imagenFisico,
-  },
+  { id: 16, nombre: "Llaveros", descripcion: "Texto.", imagen: imagenFisico },
 ];
 
-function Products() {
+export default function Products() {
   const [categoriaActiva, setCategoriaActiva] = useState("digitales");
   const productosAMostrar =
-    categoriaActiva === "fisicos" ? productosFisicos: productosDigitales;
+    categoriaActiva === "fisicos" ? productosFisicos : productosDigitales;
 
-  // Función para abrir el modal
   const handleOpenModal = (producto) => {
     alert(`Abriendo modal para: ${producto.nombre}`);
-    // Poner logica
   };
 
   const ProductCard = ({ producto }) => (
-    <div
-      className="p-[2px] bg-gradient-to-br from-pink-main to-blue-main 
-                 rounded-t-xl rounded-b-none 
-                 shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-    >
-      <div className="bg-bg-2 rounded-t-xl rounded-b-none overflow-hidden h-full">
+    <div className="p-[2px] bg-linear-to-r from-pink-main to-blue-main rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+      <div className="bg-white rounded-xl overflow-hidden flex flex-col h-full">
         <div className="h-40 overflow-hidden relative">
           <img
             src={producto.imagen}
             alt={producto.nombre}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-2/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>
         </div>
 
-        <div className="p-5 pt-3">
-          <h3 className="text-xl font-title font-bold text-start text-text-extra-light mb-2">
+        <div className="flex flex-col flex-grow p-5 pt-3">
+          <h3 className="text-lg font-title font-bold text-bg-2 text-start mb-2">
             {producto.nombre}
           </h3>
-          <p className="text-text-mid text-sm text-start mb-4">{producto.descripcion}</p>
+          <p className="text-gray-600 text-sm text-start mb-4 flex-grow">
+            {producto.descripcion}
+          </p>
 
-          <div className="w-full rounded-full p-[2px] bg-gradient-to-r from-green-main to-blue-main hover:shadow-lg hover:shadow-green-main/30 transition-shadow">
+          <div className="flex justify-end mt-auto">
             <button
               onClick={() => handleOpenModal(producto)}
-              className="block w-full px-4 py-2 bg-bg-2 text-text-light font-semibold rounded-full hover:bg-bg-1 transition-all"
+              className="px-3 py-1 text-sm bg-linear-to-r from-pink-main to-yellow-main text-white font-semibold rounded-full shadow hover:shadow-green-main/30 transition-all"
             >
-              Ver Detalle
+              Ver detalle
             </button>
           </div>
         </div>
@@ -154,44 +110,43 @@ function Products() {
   );
 
   return (
-    <section
-      id="productos"
-      className="py-28 px-8 lg:px-40 bg-bg-1 text-text-light relative"
-    >
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="productos" className="py-24 px-6 lg:px-28 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-title font-extrabold leading-tight">
+          <div className="place-items-center">
+            <h3 className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
+              La Grafi-k productos
+            </h3>
+            {/* <div className="w-20 h-1 bg-gradient-to-r from-pink-main to-blue-main rounded-full mb-6"></div>*/}
+          </div>
+          <h2 className="text-4xl font-extrabold text-gray-900">
             Nuestros{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-main via-pink-main to-yellow-main animate-gradient bg-[length:200%_200%]">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-main via-pink-main to-yellow-main animate-gradient bg-[length:200%_200%]">
               Productos
             </span>
           </h2>
-          <p className="text-lg text-text-mid mt-4 max-w-2xl mx-auto">
-            Selecciona entre nuestra amplia variedad de productos gráficos
-            digitales y físicos
+          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+            Seleccioná entre nuestra variedad de productos gráficos.
           </p>
         </div>
 
-        <div className="flex justify-center gap-6 mb-12">
-          {["digitales", "fisicos"].map((category) => (
-            <div
-              key={category}
-              className={"rounded-full p-[3px] transition-all duration-300"}
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {[
+            { key: "digitales", label: "Digitales" },
+            { key: "fisicos", label: "Físicos" },
+          ].map((cat) => (
+            <button
+              key={cat.key}
+              onClick={() => setCategoriaActiva(cat.key)}
+              className={`px-6 py-2 rounded-full text-lg font-bold transition-all duration-300 border shadow-sm
+                ${
+                  categoriaActiva === cat.key
+                    ? "bg-linear-to-r from-blue-main to-pink-main text-white shadow-md"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                }`}
             >
-              <button
-                onClick={() => setCategoriaActiva(category)}
-                className={`px-6 py-2 rounded-full text-lg font-bold transition-all duration-300 
-                  ${
-                    categoriaActiva === category
-                      ? "bg-linear-to-r from-pink-main to-blue-main text-text-extra-light"
-                      : "bg-bg-1 border border-bg-2 text-text-mid hover:text-text-light"
-                  }`}
-              >
-                {category === "digitales"
-                  ? "Productos Digitales"
-                  : "Productos Físicos"}
-              </button>
-            </div>
+              {cat.label}
+            </button>
           ))}
         </div>
 
@@ -204,5 +159,3 @@ function Products() {
     </section>
   );
 }
-
-export default Products;
