@@ -37,7 +37,7 @@ export default function Contacto() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">WhatsApp</h4>
+                  <h4 className="text-left font-bold text-gray-900">WhatsApp</h4>
                   <p className="text-gray-600 text-lg group-hover:text-green-600 transition-colors">11 3193-1833</p>
                 </div>
               </a>
@@ -50,7 +50,7 @@ export default function Contacto() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">E-mail</h4>
+                  <h4 className="text-left font-bold text-gray-900">E-mail</h4>
                   <p className="text-gray-600 group-hover:text-blue-main transition-colors">lagrafi-k@hotmail.com</p>
                 </div>
               </a>
@@ -64,7 +64,7 @@ export default function Contacto() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">Dirección</h4>
+                  <h4 className="text-left font-bold text-gray-900">Dirección</h4>
                   <p className="text-gray-600">Cnel. Lorenzo Barcala 656</p>
                   <p className="text-gray-500 text-sm">Ituzaingó, Buenos Aires</p>
                 </div>
@@ -78,7 +78,7 @@ export default function Contacto() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Horarios de Atención</h4>
+                  <h4 className="text-left font-bold text-gray-900 mb-1">Horarios de Atención</h4>
                   <div className="text-gray-600 space-y-1">
                     <p className="flex justify-between w-full md:w-64">
                       <span>Lunes a Viernes:</span>
