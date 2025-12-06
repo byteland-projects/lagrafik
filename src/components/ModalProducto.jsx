@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ModalProducto({ producto, onClose }) {
   const [medida, setMedida] = useState("A4");
   const [cantidad, setCantidad] = useState(1);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   const medidas = ["A4", "A5", "A6", "Personalizado"];
 
@@ -107,14 +115,14 @@ Cantidad: ${cantidad}
               </p>
 
               <div className="w-full my-3">
-                <div className="w-full h-[1px] bg-bg-2"></div>
+                <div className="w-full h-px bg-bg-2"></div>
               </div>
 
               {/* BOTÓN FINAL */}
               <button
                 onClick={enviarWhatsApp}
                 className="w-full py-2 sm:py-3 mt-1 rounded-xl text-md sm:text-lg font-bold 
-                bg-gradient-to-r from-pink-main to-yellow-main text-white shadow-lg 
+                bg-linear-to-r from-pink-main to-yellow-main text-white shadow-lg 
                 hover:opacity-90 transition-all"
               >
                 Solicitar presupuesto
