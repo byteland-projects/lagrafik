@@ -21,7 +21,7 @@ Medidas: ${medida}
 Cantidad: ${cantidad}
 `;
 
-    const url = `https://wa.me/541130608503?text=${encodeURIComponent(
+    const url = `https://wa.me/5491131931833?text=${encodeURIComponent(
       mensaje
     )}`;
 
