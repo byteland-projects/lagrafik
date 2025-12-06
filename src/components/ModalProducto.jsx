@@ -3,23 +3,22 @@ import { useState, useEffect } from "react";
 export default function ModalProducto({ producto, onClose }) {
   const [medida, setMedida] = useState("A4");
   const [cantidad, setCantidad] = useState(1);
+  const [material, setMaterial] = useState();
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    
+    document.body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, []);
 
-  const medidas = ["A4", "A5", "A6", "Personalizado"];
-
   const enviarWhatsApp = () => {
     const mensaje = `Hola! Quisiera solicitar un presupuesto.\n
-Producto: ${producto.nombre}
-Medidas: ${medida}
-Cantidad: ${cantidad}
-`;
+    Producto: ${producto.nombre}
+    Medidas: ${medida}
+    Cantidad: ${cantidad}
+    `;
 
     const url = `https://wa.me/541130608503?text=${encodeURIComponent(
       mensaje
@@ -62,7 +61,7 @@ Cantidad: ${cantidad}
             {/* MEDIDAS */}
             <h3 className="text-lg font-semibold mb-2 text-left">Medidas:</h3>
             <div className="flex flex-wrap gap-3 mb-6">
-              {medidas.map((m) => (
+              {producto.medidas.map((m) => (
                 <button
                   key={m}
                   onClick={() => setMedida(m)}
@@ -78,6 +77,29 @@ Cantidad: ${cantidad}
                 </button>
               ))}
             </div>
+
+            {/* Material */}
+            {producto.material && <>
+              <h3 className="text-lg font-semibold mb-2 text-left">Material:</h3>
+            <div className="flex flex-wrap gap-3 mb-6">
+              {producto.material.map((m) => (
+                <button
+                  key={m}
+                  onClick={() => setMaterial(m)}
+                  className={`px-4 py-2 rounded-full font-semibold text-sm sm:text-base transition-all
+                    ${
+                      material === m
+                        ? "bg-yellow-main text-black"
+                        : "bg-bg-3 text-white hover:bg-[#364b65]"
+                    }
+                  `}
+                >
+                  {m}
+                </button>
+              ))}
+            </div>
+            </>
+            }
 
             {/* CANTIDAD */}
             <h3 className="text-lg font-semibold mb-2 text-left">Cantidad:</h3>

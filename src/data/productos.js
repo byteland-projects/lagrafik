@@ -10,6 +10,8 @@ export const productosDigitales = [
     detalle:
       "Un menú visual, práctico y fácil de actualizar. Ideal para mejorar la presentación de tu negocio y aumentar tus ventas.",
     imagen: imagenMenu,
+    medidas: null,
+    material: null,
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const productosDigitales = [
     detalle:
       "Diseños pensados para captar atención y comunicar tus promos sin perder tiempo. Ideales para redes y WhatsApp.",
     imagen: imagenMenu,
+    medidas: null,
+    material: null,
   },
   {
     id: 3,
@@ -26,6 +30,8 @@ export const productosDigitales = [
     detalle:
       "Creamos un logo estético y funcional, pensado para destacar y transmitir la identidad de tu negocio.",
     imagen: imagenMenu,
+    medidas: null,
+    material: null,
   },
 ];
 
@@ -37,6 +43,8 @@ export const productosFisicos = [
     detalle:
       "Los folletos permiten difundir tu negocio a todos los hogares de tu zona, incluso sin redes sociales.",
     imagen: imagenFisico,
+    medidas: ["11x17", "17x22", "A3"],
+    material: null,
   },
   {
     id: 5,
@@ -45,6 +53,8 @@ export const productosFisicos = [
     detalle:
       "Ideales para dejar una buena impresión y ampliar tu red de contactos de forma simple y efectiva.",
     imagen: imagenFisico,
+    medidas: ["9x5", "8.5x5.5"],
+    material: null,
   },
   {
     id: 6,
@@ -53,6 +63,8 @@ export const productosFisicos = [
     detalle:
       "Tus datos quedan siempre a la vista del cliente. Perfectos para servicios y deliverys.",
     imagen: imagenFisico,
+    medidas: ["6x4", "7x5", "10x7"],
+    material: null,
   },
   {
     id: 7,
@@ -61,6 +73,8 @@ export const productosFisicos = [
     detalle:
       "Sirven para packaging, señalización, promociones y más. Económicos y muy visibles.",
     imagen: imagenFisico,
+    medidas: ["4x4", "5x5", "6x6", "Troquelados"],
+    material: null,
   },
   {
     id: 8,
@@ -69,6 +83,8 @@ export const productosFisicos = [
     detalle:
       "Facilitan la organización diaria y mejoran la presentación de tus procesos.",
     imagen: imagenFisico,
+    medidas: ["A5", "A4", "10x20"],
+    material: null,
   },
   {
     id: 9,
@@ -77,6 +93,8 @@ export const productosFisicos = [
     detalle:
       "Atraen miradas al instante y se usan en negocios, eventos, fiestas y más.",
     imagen: imagenFisico,
+    medidas: ["90x190", "80x180", "100x200"],
+    material: null,
   },
   {
     id: 10,
@@ -84,6 +102,8 @@ export const productosFisicos = [
     descripcion: "Carteles plásticos resistentes y duraderos.",
     detalle: "Perfectos para indicar, decorar o informar en cualquier espacio.",
     imagen: imagenFisico,
+    medidas: ["A4", "A3", "30x40", "50x70"],
+    material: null,
   },
   {
     id: 11,
@@ -91,6 +111,8 @@ export const productosFisicos = [
     descripcion: "Económicas, visibles y efectivas para difundir.",
     detalle: "Ideales para lugares estratégicos y campañas de alta exposición.",
     imagen: imagenFisico,
+    medidas: ["100x70", "150x50", "Pasacalle"],
+    material: null,
   },
   {
     id: 12,
@@ -99,6 +121,8 @@ export const productosFisicos = [
     detalle:
       "Dura hasta tres veces más que lo impreso. Ideal para marcas y cartelería.",
     imagen: imagenFisico,
+    medidas: ["Por metro", "Corte personalizado"],
+    material: null,
   },
   {
     id: 13,
@@ -107,6 +131,8 @@ export const productosFisicos = [
     detalle:
       "Ajustamos tamaño, luz y color para que tus fotos queden perfectas.",
     imagen: imagenFisico,
+    medidas: ["10x15", "13x18", "15x21", "20x30", "Polaroid"],
+    material: null,
   },
   {
     id: 14,
@@ -115,6 +141,8 @@ export const productosFisicos = [
     detalle:
       "Aumentan la percepción de calidad y hacen que tu marca se vea más profesional.",
     imagen: imagenFisico,
+    medidas: ["3x3", "5x5", "4x8"],
+    material: null,
   },
   {
     id: 15,
@@ -123,6 +151,8 @@ export const productosFisicos = [
     detalle:
       "Ideales para exterior, humedad o uso frecuente. Resistentes y prácticos.",
     imagen: imagenFisico,
+    medidas: ["Carnet", "A4", "Oficio", "A3"],
+    material: null,
   },
   {
     id: 16,
@@ -131,5 +161,7 @@ export const productosFisicos = [
     detalle:
       "Los clientes los usan todos los días, por eso son tan efectivos como publicidad.",
     imagen: imagenFisico,
+    medidas: ["4x4", "Circular 3cm", "Rectangular"],
+    material: null,
   },
 ];
