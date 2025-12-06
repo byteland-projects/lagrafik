@@ -8,10 +8,10 @@ export default function ModalProducto({ producto, onClose }) {
 
   const enviarWhatsApp = () => {
     const mensaje = `Hola! Quisiera solicitar un presupuesto.\n
-    Producto: ${producto.nombre}
-    Medidas: ${medida}
-    Cantidad: ${cantidad}
-    `;
+Producto: ${producto.nombre}
+Medidas: ${medida}
+Cantidad: ${cantidad}
+`;
 
     const url = `https://wa.me/541130608503?text=${encodeURIComponent(
       mensaje
