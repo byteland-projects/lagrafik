@@ -1,148 +1,142 @@
 import { useState, useEffect } from "react";
 
 export default function ModalProducto({ producto, onClose }) {
-  const [medida, setMedida] = useState("");
-  const [cantidad, setCantidad] = useState("");
-  const [material, setMaterial] = useState("");
+  const [opciones, setOpciones] = useState({});
 
-  // Bloquear scroll del body al abrir y pre-seleccionar opciones
+  // Campos fijos que NO se renderizan dinámicamente
+  const CAMPOS_VIP = ["id", "nombre", "descripcion", "detalle", "imagen"];
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    
-    // Pre-seleccionar la primera opción si existe para evitar que el usuario envíe "null"
-    if (producto.medidas?.length > 0) setMedida(producto.medidas[0]);
-    if (producto.material?.length > 0) setMaterial(producto.material[0]);
-    if (producto.cantidad?.length > 0) setCantidad(producto.cantidad[0]);
+
+    // Pre-seleccionar la primera opción de cada lista
+    const defaults = {};
+    Object.keys(producto).forEach((key) => {
+      // Solo si es una lista válida y no es VIP
+      if (!CAMPOS_VIP.includes(key) && Array.isArray(producto[key]) && producto[key].length > 0) {
+        defaults[key] = producto[key][0];
+      }
+    });
+    setOpciones(defaults);
 
     return () => {
       document.body.style.overflow = "";
     };
   }, [producto]);
 
+  const handleSeleccion = (key, valor) => {
+    setOpciones((prev) => ({
+      ...prev,
+      [key]: valor,
+    }));
+  };
+
+  const capitalizar = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
   const enviarWhatsApp = () => {
-    const mensaje = `Hola! Quisiera solicitar un presupuesto.\n
-    *Producto:* ${producto.nombre}
-    ${medida ? `*Medidas:* ${medida}` : ''}
-    ${material ? `*Material:* ${material}` : ''}
-    *Cantidad:* ${cantidad}
-    `;
+    let mensaje = `Hola! Quisiera solicitar un presupuesto.\n\n*Producto:* ${producto.nombre}\n`;
+
+    // Recorremos las claves para armar el mensaje
+    Object.keys(producto).forEach((key) => {
+      if (CAMPOS_VIP.includes(key)) return;
+
+      const valorOriginal = producto[key];
+      const valorSeleccionado = opciones[key];
+
+      // Solo agregamos al mensaje si es un Array y el usuario eligió algo
+      if (Array.isArray(valorOriginal) && valorSeleccionado) {
+        mensaje += `*${capitalizar(key)}:* ${valorSeleccionado}\n`;
+      }
+    });
 
     const url = `https://wa.me/541130608503?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
   };
 
   return (
-    // Overlay oscuro con blur
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4 sm:p-6">
       
-      {/* Contenedor Principal (Card) */}
-      <div className="bg-bg-2 text-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] relative animate-fadeIn">
+      {/* CARD PRINCIPAL */}
+      <div className="bg-bg-2 text-white md:w-full max-w-6xl h-[85vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
         
-        {/* BOTÓN CERRAR (Flotante y siempre visible) */}
+        {/* BOTÓN CERRAR */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full transition-colors text-white"
+          className="absolute right-4 top-4 z-20 p-2 bg-black/20 hover:bg-black/40 rounded-full transition-colors text-white"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
-        {/* COLUMNA 1: IMAGEN */}
-        <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-800 shrink-0">
+        {/* COLUMNA 1: IMAGEN CUADRADA */}
+        <div className="w-full md:w-6/10 h-64 md:h-auto md:aspect-square relative bg-gray-800 shrink-0">
           <img
-            src={producto.imagen}
+            src={producto.imagen || "/logo.png"}
             alt={producto.nombre}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Degradado sutil abajo para que la imagen se fusione un poco si es muy clara */}
           <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent md:hidden" />
         </div>
 
-        {/* COLUMNA 2: CONTENIDO (Scrollable) */}
-        <div className="w-full md:w-1/2 flex flex-col p-6 md:p-8 overflow-y-auto">
+        {/* COLUMNA 2: CONTENIDO */}
+        {/* Agregamos overflow-hidden aquí también para asegurar contención */}
+        <div className="w-full md:w-1/2 flex flex-col h-full bg-bg-2 overflow-hidden">
           
-          <div className="flex-1">
+          {/* Área Scrolleable:
+              - flex-1: Toma el espacio disponible
+              - overflow-y-auto: Permite scroll vertical
+              - min-h-0: CRÍTICO. Evita que el flex item crezca más allá del contenedor padre.
+          */}
+          <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar min-h-0">
+            
             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white leading-tight">
               {producto.nombre}
             </h2>
 
-            <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed border-b border-gray-700/50 pb-6">
               {producto.detalle}
             </p>
 
-            {/* SELECCIÓN DE MEDIDAS */}
-            {producto.medidas && (
-              <div className="mb-6">
-                <h3 className="text-left text-sm uppercase tracking-wider text-gray-400 font-bold mb-3">Medidas</h3>
-                <div className="flex flex-wrap gap-2">
-                  {producto.medidas.map((m) => (
-                    <button
-                      key={m}
-                      onClick={() => setMedida(m)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-200
-                        ${medida === m
-                          ? "bg-yellow-main border-yellow-main text-black shadow-lg shadow-yellow-main/20 scale-105"
-                          : "bg-transparent border-gray-600 text-gray-300 hover:border-gray-400 hover:bg-white/5"
-                        }
-                      `}
-                    >
-                      {m}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* --- RENDERING DINÁMICO (SOLO LISTAS) --- */}
+            <div className="space-y-6">
+              {Object.keys(producto).map((key) => {
+                if (CAMPOS_VIP.includes(key) || !producto[key]) return null;
 
-            {/* SELECCIÓN DE MATERIAL */}
-            {producto.material && (
-              <div className="mb-6">
-                <h3 className="text-left text-sm uppercase tracking-wider text-gray-400 font-bold mb-3">Material</h3>
-                <div className="flex flex-wrap gap-2">
-                  {producto.material.map((m) => (
-                    <button
-                      key={m}
-                      onClick={() => setMaterial(m)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-200
-                        ${material === m
-                          ? "bg-yellow-main border-yellow-main text-black shadow-lg shadow-yellow-main/20 scale-105"
-                          : "bg-transparent border-gray-600 text-gray-300 hover:border-gray-400 hover:bg-white/5"
-                        }
-                      `}
-                    >
-                      {m}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+                const valor = producto[key];
 
-            {/* SELECCIÓN DE CANTIDAD */}
-            {producto.cantidad && (
-              <div className="mb-6">
-                <h3 className="text-left text-sm uppercase tracking-wider text-gray-400 font-bold mb-3">cantidad</h3>
-                <div className="flex flex-wrap gap-2">
-                  {producto.cantidad.map((m) => (
-                    <button
-                      key={m}
-                      onClick={() => setCantidad(m)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-200
-                        ${cantidad === m
-                          ? "bg-yellow-main border-yellow-main text-black shadow-lg shadow-yellow-main/20 scale-105"
-                          : "bg-transparent border-gray-600 text-gray-300 hover:border-gray-400 hover:bg-white/5"
-                        }
-                      `}
-                    >
-                      {m}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+                if (Array.isArray(valor) && valor.length > 0) {
+                  return (
+                    <div key={key}>
+                      <h3 className="text-left text-sm uppercase tracking-wider text-yellow-main font-bold mb-3">
+                        {capitalizar(key)}
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {valor.map((opcion) => (
+                          <button
+                            key={opcion}
+                            onClick={() => handleSeleccion(key, opcion)}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-200
+                              ${opciones[key] === opcion
+                                ? "bg-yellow-main border-yellow-main text-black shadow-lg shadow-yellow-main/20 scale-105"
+                                : "bg-transparent border-gray-600 text-gray-300 hover:border-gray-400 hover:bg-white/5"
+                              }
+                            `}
+                          >
+                            {opcion}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })}
+            </div>
           </div>
 
-          {/* BOTÓN DE ACCIÓN (Sticky bottom visualmente) */}
-          <div className="pt-4 mt-auto border-t border-gray-700/50">
+          {/* FOOTER STICKY */}
+          <div className="p-6 border-t border-gray-700/50 bg-bg-2 z-10 shrink-0">
             <button
               onClick={enviarWhatsApp}
               className="w-full py-4 rounded-xl text-lg font-bold 

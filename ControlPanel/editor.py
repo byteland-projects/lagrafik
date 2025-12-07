@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import json
 import os
-import subprocess # Librería para ejecutar comandos de terminal (Git)
+import subprocess 
 from tkinter import messagebox
 
 ctk.set_appearance_mode("Dark")
@@ -13,27 +13,24 @@ class EditorApp(ctk.CTk):
 
         # --- CONFIGURACIÓN VENTANA ---
         self.title("Control Panel - La Grafi-K")
-        self.geometry("1100x750")
+        self.geometry("1100x800")
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=3)
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=0)
 
-        # --- VARIABLES ---
-        # Detectamos dónde está el archivo data.json real (en src)
-        # Asumimos que la estructura es:
-        # /RaizProyecto
-        #    /src/data.json
-        #    /ControlPanel/editor.py
+        # --- RUTAS ---
         self.ruta_json_real = os.path.join("..", "src", "data.json")
-        
-        # Si no existe en src (ej. entorno de prueba aislado), usamos el local
         if not os.path.exists(self.ruta_json_real):
              self.ruta_json_real = "data.json"
 
+        # --- VARIABLES ---
         self.datos = { "digitales": [], "fisicos": [] }
         self.producto_actual = None
         self.campos_ui = {}
+        
+        # Campos VIP: Se mantienen fijos y NO se convierten a lista automáticamente
+        self.campos_vip = ["id", "nombre", "descripcion", "detalle", "imagen"]
         
         self.cargar_json()
 
@@ -42,29 +39,18 @@ class EditorApp(ctk.CTk):
         self.scroll_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
         self.crear_lista_productos()
 
-        # --- UI: BOTONERA INFERIOR ---
+        # --- UI: BOTÓN PUBLICAR ---
         self.frame_botones = ctk.CTkFrame(self, fg_color="transparent")
         self.frame_botones.grid(row=1, column=0, padx=10, pady=(0, 20), sticky="ew")
 
-        # Botón Guardar Local
-        self.btn_guardar_disco = ctk.CTkButton(
-            self.frame_botones, 
-            text="💾 GUARDAR (LOCAL)", 
-            fg_color="#c0392b", hover_color="#e74c3c",
-            font=("Arial", 12, "bold"),
-            command=self.guardar_en_disco
-        )
-        self.btn_guardar_disco.pack(side="left", fill="x", expand=True, padx=(0, 5))
-
-        # Botón Subir a GitHub (NUEVO)
         self.btn_subir_web = ctk.CTkButton(
             self.frame_botones, 
-            text="🚀 PUBLICAR EN NETLIFY (GIT)", 
-            fg_color="#24292e", hover_color="#444c56", # Colores estilo GitHub
-            font=("Arial", 12, "bold"),
+            text="PUBLICAR EN LA WEB", 
+            fg_color="#104477", hover_color="#2b77d3",
+            height=40, font=("Arial", 12, "bold"),
             command=self.sincronizar_git
         )
-        self.btn_subir_web.pack(side="right", fill="x", expand=True, padx=(5, 0))
+        self.btn_subir_web.pack(fill="x", expand=True)
 
         # --- UI: PANEL DERECHO ---
         self.panel_editor = ctk.CTkScrollableFrame(self, label_text="Editar Detalles")
@@ -73,102 +59,116 @@ class EditorApp(ctk.CTk):
         self.lbl_info = ctk.CTkLabel(self.panel_editor, text="Selecciona un producto para editar.", font=("Arial", 16))
         self.lbl_info.pack(pady=50)
 
-    # --- DATOS ---
+    # --- GESTIÓN DE DATOS ---
+
     def cargar_json(self):
-        # Intentamos cargar desde src primero, sino local
-        ruta_a_leer = self.ruta_json_real if os.path.exists(self.ruta_json_real) else "data.json"
-        
-        if os.path.exists(ruta_a_leer):
+        ruta = self.ruta_json_real if os.path.exists(self.ruta_json_real) else "data.json"
+        if os.path.exists(ruta):
             try:
-                with open(ruta_a_leer, "r", encoding="utf-8") as file:
+                with open(ruta, "r", encoding="utf-8") as file:
                     self.datos = json.load(file)
             except Exception as e:
                 messagebox.showerror("Error", f"Error JSON: {e}")
         else:
             self.datos = { "digitales": [], "fisicos": [] }
 
-    def guardar_en_disco(self):
+    def guardar_automatico(self, mensaje_exito=None):
         try:
-            # Guardamos DIRECTAMENTE en la carpeta src del proyecto React
             with open(self.ruta_json_real, "w", encoding="utf-8") as file:
                 json.dump(self.datos, file, indent=2, ensure_ascii=False)
             
-            # (Opcional) Guardar copia de seguridad en la carpeta del panel
             with open("data.json", "w", encoding="utf-8") as file:
                 json.dump(self.datos, file, indent=2, ensure_ascii=False)
 
-            messagebox.showinfo("Guardado", f"Datos guardados en:\n{self.ruta_json_real}\n\n¡La web local ya debería mostrar los cambios!")
+            if mensaje_exito:
+                messagebox.showinfo("Guardado", mensaje_exito)
         except Exception as e:
-            messagebox.showerror("Error", f"No se pudo guardar: {e}")
+            messagebox.showerror("Error Guardado", f"No se pudo guardar: {e}")
 
-    # --- NUEVA FUNCIÓN: GIT ---
+    # --- GIT ---
     def sincronizar_git(self):
-        # 1. Preguntar confirmación
-        if not messagebox.askyesno("Publicar cambios", "¿Deseas enviar los cambios a GitHub?\nNetlify actualizará la web automáticamente en unos minutos."):
-            return
-
+        if not messagebox.askyesno("Publicar", "¿Deseas publicar los cambios en la web?"): return
         try:
-            # Definimos dónde se ejecutarán los comandos (en la raíz del proyecto, un nivel arriba de ControlPanel)
             raiz_proyecto = ".." 
-
-            # Configuración para que no abra ventanas negras de terminal (en Windows)
             startupinfo = subprocess.STARTUPINFO()
             startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-
-            # Paso 1: git add .
             subprocess.run(["git", "add", "."], cwd=raiz_proyecto, check=True, startupinfo=startupinfo)
-            
-            # Paso 2: git commit
-            # Usamos un mensaje genérico, o podrías pedirle al usuario que escriba uno
-            mensaje_commit = "Actualización de productos desde Panel de Control"
-            subprocess.run(["git", "commit", "-m", mensaje_commit], cwd=raiz_proyecto, check=True, startupinfo=startupinfo)
-            
-            # Paso 3: git push origin main
-            # Nota: 'check=True' hará que salte al 'except' si el comando falla
+            subprocess.run(["git", "commit", "-m", "Update productos"], cwd=raiz_proyecto, check=True, startupinfo=startupinfo)
             subprocess.run(["git", "push", "origin", "main"], cwd=raiz_proyecto, check=True, startupinfo=startupinfo)
-
-            messagebox.showinfo("Éxito", "¡Cambios enviados a GitHub!\nNetlify ya está procesando la actualización.")
-
-        except subprocess.CalledProcessError as e:
-            # Esto pasa si git devuelve un error (ej: no hay conexión, o no hay cambios para commitear)
-            if "nothing to commit" in str(e) or e.returncode == 1: 
-                 # A veces commit falla si no hay cambios nuevos, pero no es grave
-                 pass 
-            else:
-                 messagebox.showerror("Error de Git", f"Ocurrió un error al ejecutar Git.\nAsegúrate de tener internet y permisos.\n\nDetalle: {e}")
+            messagebox.showinfo("Éxito", "¡Cambios publicados!")
         except Exception as e:
-            messagebox.showerror("Error General", f"Error inesperado: {e}")
+            messagebox.showerror("Error", f"Error Git: {e}")
 
-    # --- RESTO DE LÓGICA (ID, Agregar, Eliminar) ---
+    # --- LÓGICA PRODUCTOS ---
     def generar_nuevo_id(self):
         todos = self.datos.get("digitales", []) + self.datos.get("fisicos", [])
         if not todos: return 1
-        ids = [p["id"] for p in todos]
+        ids = [p.get("id", 0) for p in todos] 
         return max(ids) + 1
 
     def agregar_producto(self, categoria):
-        nuevo_id = self.generar_nuevo_id()
         nuevo_prod = {
-            "id": nuevo_id,
+            "id": self.generar_nuevo_id(),
             "nombre": "Nuevo Producto",
-            "descripcion": "...",
-            "detalle": "...",
+            "descripcion": "...", "detalle": "...",
             "imagen": "/imagenes/grafica.jpg",
-            "medidas": None, "material": None, "cantidad": None
         }
         self.datos[categoria].append(nuevo_prod)
         self.crear_lista_productos()
         self.cargar_formulario(nuevo_prod)
+        self.guardar_automatico()
 
     def eliminar_producto(self, producto, categoria):
-        if messagebox.askyesno("Confirmar", f"¿Eliminar '{producto['nombre']}'?"):
+        if messagebox.askyesno("Confirmar", f"¿Eliminar '{producto.get('nombre', 'Sin nombre')}'?"):
             self.datos[categoria].remove(producto)
             if self.producto_actual == producto:
                 self.producto_actual = None
                 for w in self.panel_editor.winfo_children(): w.destroy()
             self.crear_lista_productos()
+            self.guardar_automatico()
 
-    # --- UI LISTAS Y FORMULARIO ---
+    # --- GESTIÓN DE CAMPOS/ATRIBUTOS ---
+
+    def agregar_campo_global(self):
+        dialog = ctk.CTkInputDialog(text="Nombre del nuevo atributo (ej: color, peso):", title="Agregar Campo")
+        nuevo_key = dialog.get_input()
+        
+        if not nuevo_key: return 
+        nuevo_key = nuevo_key.lower().strip() 
+        
+        if nuevo_key in self.campos_vip:
+            messagebox.showerror("Error", "No puedes usar ese nombre, es reservado.")
+            return
+
+        count = 0
+        for cat in ["digitales", "fisicos"]:
+            for prod in self.datos[cat]:
+                if nuevo_key not in prod:
+                    prod[nuevo_key] = None
+                    count += 1
+        
+        self.guardar_automatico()
+        if self.producto_actual:
+            self.cargar_formulario(self.producto_actual)
+            
+        messagebox.showinfo("Éxito", f"Campo '{nuevo_key}' agregado a {count} productos.")
+
+    def borrar_campo_global(self, key_borrar):
+        if not messagebox.askyesno("PELIGRO - BORRAR CAMPO", f"¿Estás seguro de eliminar el atributo '{key_borrar}'?\n\nSe borrará de TODOS los productos permanentemente."):
+            return
+
+        count = 0
+        for cat in ["digitales", "fisicos"]:
+            for prod in self.datos[cat]:
+                if key_borrar in prod:
+                    del prod[key_borrar]
+                    count += 1
+        
+        self.guardar_automatico()
+        if self.producto_actual:
+            self.cargar_formulario(self.producto_actual)
+
+    # --- UI COMPONENTES ---
     def crear_lista_productos(self):
         for widget in self.scroll_frame.winfo_children(): widget.destroy()
 
@@ -183,7 +183,7 @@ class EditorApp(ctk.CTk):
     def crear_fila_producto(self, prod, categoria):
         row = ctk.CTkFrame(self.scroll_frame, fg_color="transparent")
         row.pack(fill="x", pady=2)
-        ctk.CTkButton(row, text=prod["nombre"], fg_color="transparent", border_width=1, anchor="w", command=lambda p=prod: self.cargar_formulario(p)).pack(side="left", fill="x", expand=True)
+        ctk.CTkButton(row, text=prod.get("nombre", "Sin Nombre"), fg_color="transparent", border_width=1, anchor="w", command=lambda p=prod: self.cargar_formulario(p)).pack(side="left", fill="x", expand=True)
         ctk.CTkButton(row, text="X", width=30, fg_color="transparent", text_color="red", font=("Arial",12,"bold"), command=lambda p=prod, c=categoria: self.eliminar_producto(p, c)).pack(side="right", padx=5)
 
     def cargar_formulario(self, producto):
@@ -191,33 +191,57 @@ class EditorApp(ctk.CTk):
         self.campos_ui = {}
         for w in self.panel_editor.winfo_children(): w.destroy()
 
-        ctk.CTkLabel(self.panel_editor, text=f"Editando: {producto['nombre']}", font=("Arial", 20, "bold")).pack(pady=(10, 20))
+        ctk.CTkLabel(self.panel_editor, text=f"Editando: {producto.get('nombre', 'Item')}", font=("Arial", 20, "bold")).pack(pady=(10, 20))
         
-        self.crear_input("ID", str(producto['id']), readonly=True)
-        self.campos_ui['nombre'] = self.crear_input("Nombre", producto['nombre'])
-        self.campos_ui['descripcion'] = self.crear_input("Descripción", producto['descripcion'])
-        self.campos_ui['detalle'] = self.crear_input("Detalle", producto['detalle'])
-        self.campos_ui['imagen'] = self.crear_input("Ruta Imagen", producto['imagen'])
+        # 1. RENDERIZAR CAMPOS VIP
+        self.crear_input("ID", str(producto.get('id', '')), readonly=True)
+        self.campos_ui['nombre'] = self.crear_input("Nombre", producto.get('nombre', ''))
+        self.campos_ui['descripcion'] = self.crear_input("Descripción", producto.get('descripcion', ''))
+        self.campos_ui['detalle'] = self.crear_input("Detalle", producto.get('detalle', ''))
 
-        cant_str = ", ".join(producto['cantidad']) if isinstance(producto.get('cantidad'), list) else ""
-        self.campos_ui['cantidad'] = self.crear_input("Cantidad (sep. comas)", cant_str)
+        ruta = producto.get('imagen', '')
+        nombre_archivo = ruta.replace("/imagenes/", "") if ruta else ""
+        self.campos_ui['imagen'] = self.crear_input("Imagen (Solo nombre)", nombre_archivo)
 
-        med_str = ", ".join(producto['medidas']) if producto['medidas'] else ""
-        self.campos_ui['medidas'] = self.crear_input("Medidas (sep. comas)", med_str)
+        # 2. SEPARADOR Y TÍTULO PARA CAMPOS DINÁMICOS
+        ctk.CTkFrame(self.panel_editor, height=2, fg_color="gray30").pack(fill="x", pady=(20, 5))
+        ctk.CTkLabel(self.panel_editor, text="ATRIBUTOS ADICIONALES (Separar opciones con comas)", text_color="#f39c12", font=("Arial", 12, "bold")).pack(pady=(0, 10))
 
-        mat_str = ", ".join(producto['material']) if producto['material'] else ""
-        self.campos_ui['material'] = self.crear_input("Materiales (sep. comas)", mat_str)
+        # 3. RENDERIZAR CAMPOS DINÁMICOS
+        for key, value in producto.items():
+            if key not in self.campos_vip:
+                # Aquí mostramos siempre separado por comas si es lista
+                if isinstance(value, list):
+                    valor_str = ", ".join(value)
+                else:
+                    valor_str = str(value) if value is not None else ""
+                
+                label_text = key.capitalize()
+                self.campos_ui[key] = self.crear_input_dinamico(label_text, valor_str, key)
 
-        ctk.CTkButton(self.panel_editor, text="Confirmar Edición (Memoria)", fg_color="green", command=self.confirmar_edicion).pack(pady=20)
+        # BOTONES FINALES
+        ctk.CTkFrame(self.panel_editor, height=2, fg_color="gray30").pack(fill="x", pady=20)
+        ctk.CTkButton(self.panel_editor, text="+ AGREGAR NUEVO ATRIBUTO", fg_color="#e67e22", hover_color="#d35400", command=self.agregar_campo_global).pack(pady=(0, 10))
+        ctk.CTkButton(self.panel_editor, text="✅ GUARDAR CAMBIOS", fg_color="green", height=40, font=("Arial", 14, "bold"), command=self.confirmar_edicion).pack(pady=10)
 
     def crear_input(self, label, valor, readonly=False):
         f = ctk.CTkFrame(self.panel_editor, fg_color="transparent")
         f.pack(fill="x", pady=5)
         ctk.CTkLabel(f, text=label, width=150, anchor="w").pack(side="left")
         e = ctk.CTkEntry(f, width=400)
-        e.insert(0, valor if valor and valor != "None" else "")
+        e.insert(0, valor)
         if readonly: e.configure(state="disabled")
         e.pack(side="left", fill="x", expand=True)
+        return e
+
+    def crear_input_dinamico(self, label, valor, key_borrar):
+        f = ctk.CTkFrame(self.panel_editor, fg_color="transparent")
+        f.pack(fill="x", pady=5)
+        ctk.CTkLabel(f, text=label, width=150, anchor="w").pack(side="left")
+        e = ctk.CTkEntry(f, width=350)
+        e.insert(0, valor)
+        e.pack(side="left", fill="x", expand=True)
+        ctk.CTkButton(f, text="X", width=40, fg_color="#c0392b", hover_color="#922b21", command=lambda k=key_borrar: self.borrar_campo_global(k)).pack(side="right", padx=(5,0))
         return e
 
     def confirmar_edicion(self):
@@ -225,22 +249,32 @@ class EditorApp(ctk.CTk):
         p = self.producto_actual
         ui = self.campos_ui
         
+        # 1. Guardar VIPs
         p['nombre'] = ui['nombre'].get()
         p['descripcion'] = ui['descripcion'].get()
         p['detalle'] = ui['detalle'].get()
-        p['imagen'] = ui['imagen'].get()
         
-        c = ui['cantidad'].get()
-        p['cantidad'] = [x.strip() for x in c.split(",")] if c.strip() else None
-        
-        m = ui['medidas'].get()
-        p['medidas'] = [x.strip() for x in m.split(",")] if m.strip() else None
-        
-        mat = ui['material'].get()
-        p['material'] = [x.strip() for x in mat.split(",")] if mat.strip() else None
-        
-        messagebox.showinfo("Confirmado", "Actualizado en memoria. ¡Recuerda GUARDAR!")
+        archivo = ui['imagen'].get().strip() 
+        if archivo:
+            p['imagen'] = f"/imagenes/{archivo}"
+        else:
+            p['imagen'] = None
+
+        # 2. Guardar Dinámicos (FORZANDO SIEMPRE ARRAY)
+        for key, entry in ui.items():
+            if key not in self.campos_vip: 
+                valor_txt = entry.get()
+                
+                # AHORA SIEMPRE GUARDAMOS COMO LISTA
+                # No importa si es "cantidad", "peso", "color" o "foobar".
+                # Si tiene texto, lo convertimos a array.
+                if valor_txt.strip():
+                    p[key] = [x.strip() for x in valor_txt.split(",")]
+                else:
+                    p[key] = None # Lista vacía = null
+
         self.crear_lista_productos()
+        self.guardar_automatico(mensaje_exito="Cambios guardados localmente.\nListos para publicar.")
 
 if __name__ == "__main__":
     app = EditorApp()
