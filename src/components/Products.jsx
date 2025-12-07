@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ModalProducto from "./ModalProducto";
-import data from "../../ControlPanel/data.json";
+import data from "../../control_panel/data.json";
 
 export const productosDigitales = data.digitales;
 export const productosFisicos = data.fisicos;
