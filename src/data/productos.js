@@ -12,6 +12,7 @@ export const productosDigitales = [
     imagen: imagenMenu,
     medidas: null,
     material: null,
+    cantidad: null,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const productosDigitales = [
     imagen: imagenMenu,
     medidas: null,
     material: null,
+    cantidad: null,
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ export const productosDigitales = [
     imagen: imagenMenu,
     medidas: null,
     material: null,
+    cantidad: null,
   },
 ];
 
@@ -45,6 +48,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["11x17", "17x22", "A3"],
     material: null,
+    cantidad: null,
   },
   {
     id: 5,
@@ -54,7 +58,8 @@ export const productosFisicos = [
       "Ideales para dejar una buena impresión y ampliar tu red de contactos de forma simple y efectiva.",
     imagen: imagenFisico,
     medidas: ["9x5", "8.5x5.5"],
-    material: null,
+    material: ["Mate", "Brillo", "Plastificada"],
+    cantidad: ["250", "500", "1000" ],
   },
   {
     id: 6,
@@ -65,6 +70,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["6x4", "7x5", "10x7"],
     material: null,
+    cantidad: null,
   },
   {
     id: 7,
@@ -75,6 +81,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["4x4", "5x5", "6x6", "Troquelados"],
     material: null,
+    cantidad: null,
   },
   {
     id: 8,
@@ -85,6 +92,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["A5", "A4", "10x20"],
     material: null,
+    cantidad: null,
   },
   {
     id: 9,
@@ -95,6 +103,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["90x190", "80x180", "100x200"],
     material: null,
+    cantidad: null,
   },
   {
     id: 10,
@@ -104,6 +113,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["A4", "A3", "30x40", "50x70"],
     material: null,
+    cantidad: null,
   },
   {
     id: 11,
@@ -113,6 +123,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["100x70", "150x50", "Pasacalle"],
     material: null,
+    cantidad: null,
   },
   {
     id: 12,
@@ -123,6 +134,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["Por metro", "Corte personalizado"],
     material: null,
+    cantidad: null,
   },
   {
     id: 13,
@@ -133,6 +145,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["10x15", "13x18", "15x21", "20x30", "Polaroid"],
     material: null,
+    cantidad: null,
   },
   {
     id: 14,
@@ -143,6 +156,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["3x3", "5x5", "4x8"],
     material: null,
+    cantidad: null,
   },
   {
     id: 15,
@@ -153,6 +167,7 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["Carnet", "A4", "Oficio", "A3"],
     material: null,
+    cantidad: null,
   },
   {
     id: 16,
@@ -163,5 +178,6 @@ export const productosFisicos = [
     imagen: imagenFisico,
     medidas: ["4x4", "Circular 3cm", "Rectangular"],
     material: null,
+    cantidad: null,
   },
 ];
