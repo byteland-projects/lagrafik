@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex items-center py-35 pt-35 md:py-50 md:pt-50 overflow-hidden bg-gradient-to-br from-yellow-50/90 via-white to-blue-50/90"
+      className="relative flex items-center py-35 pt-35 md:py-50 md:pt-50 overflow-hidden bg-linear-to-br from-yellow-50/90 via-white to-blue-50/90"
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-15 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
         {/* Columna Izquierda */}
@@ -11,12 +11,12 @@ export default function Hero() {
             <h2 className="text-sm md:text-base font-bold tracking-widest text-gray-500 uppercase mb-2">
               Imprenta Gráfica Profesional
             </h2>
-            <div className="w-26 h-1 bg-gradient-to-r from-pink-main to-blue-main rounded-full mx-auto md:mx-0"></div>
+            <div className="w-26 h-1 bg-linear-to-r from-pink-main to-blue-main rounded-full mx-auto md:mx-0"></div>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
             Tus ideas en <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-[length:200%_200%]">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
               Alta Resolución
             </span>
           </h1>
@@ -48,10 +48,10 @@ export default function Hero() {
               </svg>
             </a>
 
-            <div className="rounded-full p-[2px] bg-gradient-to-r from-pink-main via-blue-main to-yellow-main hover:shadow-lg hover:shadow-pink-main/30 transition-shadow">
+            <div className="rounded-full p-0.5 bg-linear-to-r from-pink-main via-blue-main to-yellow-main hover:shadow-lg hover:shadow-pink-main/30 transition-shadow">
               <a
                 href="#productos"
-                className="block px-4 py-2 md:px-8 md:py-3 bg-white text-gray-900 font-bold rounded-full hover:text-pink-main transition all flex items-center justify-center gap-2"
+                className="block px-4 py-2 md:px-8 md:py-3 bg-white text-gray-900 font-bold rounded-full hover:text-pink-main transition all items-center justify-center gap-2"
               >
                 Ver Productos
               </a>
@@ -63,7 +63,7 @@ export default function Hero() {
         <div className="relative flex justify-center items-center">
           <div className="relative">
             <img
-              src="/logo.png"
+              src="/imagenes/logo.png"
               alt="Logo La Grafi-K"
               className="relative w-60 h-60 sm:w-76 sm:h-76 md:w-96 md:h-96 object-contain z-10 animate-float"
             />
