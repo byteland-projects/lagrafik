@@ -58,7 +58,6 @@ export default function Products() {
             <h3 className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
               La Grafi-k productos
             </h3>
-            {/* <div className="w-20 h-1 bg-gradient-to-r from-pink-main to-blue-main rounded-full mb-6"></div>*/}
           </div>
           <h2 className="text-4xl font-extrabold text-gray-900">
             Nuestros{" "}
