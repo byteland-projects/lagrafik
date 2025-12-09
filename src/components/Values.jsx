@@ -4,7 +4,7 @@ import {
   ClockIcon,
   UsersIcon,
 } from "@heroicons/react/24/solid";
-import fondo from "../assets/azul.webp";
+import fondo from "../assets/fondoValues.jpg";
 
 function Values() {
   const coreValues = [
