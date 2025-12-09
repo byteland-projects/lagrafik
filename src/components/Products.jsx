@@ -5,7 +5,6 @@ import data from "../../control_panel/data.json";
 export const productosDigitales = data.digitales;
 export const productosFisicos = data.fisicos;
 
-
 export default function Products() {
   const [categoriaActiva, setCategoriaActiva] = useState("digitales");
   const productosAMostrar =
@@ -16,12 +15,14 @@ export default function Products() {
     setProductoActivo(producto);
   };
 
+
+
   const ProductCard = ({ producto }) => (
     <div className="p-0.5 bg-linear-to-r from-pink-main to-blue-main rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
       <div className="bg-white rounded-xl overflow-hidden flex flex-col h-full">
         <div className="h-40 overflow-hidden relative">
           <img
-            src={producto.imagen}
+            src={producto.imagenes[0]}
             alt={producto.nombre}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           />
