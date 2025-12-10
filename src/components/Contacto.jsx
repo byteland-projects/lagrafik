@@ -1,6 +1,8 @@
 export default function Contacto() {
   return (
-    <section id="contacto" className="py-24 bg-white relative overflow-hidden">
+    <section id="contacto" className="py-24 bg-blue-50 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-pink-main to-transparent"></div>
+      
       <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

@@ -10,8 +10,8 @@ function Home() {
     <>
       <Hero />
       <About />
-      <Products />
       <Values />
+      <Products />
       <Contacto />
       <Footer /> 
     </>
