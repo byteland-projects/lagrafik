@@ -101,7 +101,7 @@ export default function Contacto() {
           {/* COLUMNA DERECHA: MAPA */}
           <div className="h-full min-h-[400px] w-full relative group">
             {/* Contenedor con borde degradado CMYK */}
-            <div className="absolute inset-0 bg-linear-to-r from-pink-main via-blue-main to-yellow-main rounded-2xl p-[3px] shadow-2xl rotate-1 group-hover:rotate-0 transition-all duration-500">
+            <div className="absolute inset-0 bg-linear-to-r from-pink-main via-blue-main to-yellow-main rounded-2xl p-[3px] shadow-2xl transition-all duration-500">
                <div className="h-full w-full bg-white rounded-xl overflow-hidden">
                   <iframe 
                     title="Ubicación La Grafi-K"
