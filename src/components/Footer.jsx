@@ -1,6 +1,4 @@
-import React from "react";
-
-function Footer() {
+export default function Footer() {
   return (
     <section
       id="footer"
@@ -111,4 +109,3 @@ function Footer() {
   );
 }
 
-export default Footer;

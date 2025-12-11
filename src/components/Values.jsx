@@ -8,7 +8,7 @@ import {
 import fondo from "../assets/fondoValues.jpg";
 import { useState } from "react";
 
-function Values() {
+export default function Values() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -169,5 +169,3 @@ function Values() {
     </section>
   );
 }
-
-export default Values;

@@ -56,7 +56,6 @@ export default function ModalProducto({ producto, onClose }) {
 
 
 //IMAGENES CARRUSEL
-
   // Si el array está vacío, usamos el logo como fallback
   const imagenes = producto.imagenes?.length > 0 ? producto.imagenes : ["/logo.png"];
 
@@ -137,14 +136,9 @@ export default function ModalProducto({ producto, onClose }) {
         </div>
 
         {/* COLUMNA 2: CONTENIDO */}
-        {/* Agregamos overflow-hidden aquí también para asegurar contención */}
         <div className="w-full md:w-1/2 flex flex-col h-full bg-bg-2 overflow-hidden">
           
-          {/* Área Scrolleable:
-              - flex-1: Toma el espacio disponible
-              - overflow-y-auto: Permite scroll vertical
-              - min-h-0: CRÍTICO. Evita que el flex item crezca más allá del contenedor padre.
-          */}
+          {/* Área Scrolleable:*/}
           <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar min-h-0">
             
             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white leading-tight">

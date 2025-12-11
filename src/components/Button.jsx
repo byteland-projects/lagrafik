@@ -1,4 +1,4 @@
-function Button({ nombre }) {
+export default function Button({ nombre }) {
   return (
     <button
       className="bg-linear-to-r from-pink-main to-yellow-main 
@@ -12,4 +12,3 @@ function Button({ nombre }) {
   );
 }
 
-export default Button;

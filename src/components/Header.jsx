@@ -48,9 +48,9 @@ export default function Header() {
       {/* LOGO */}
       <div className='text-2xl font-bold select-none cursor-pointer z-50'>
         <span className='text-pink-main'>La </span>
-        <span className='bg-linear-to-r from-pink-main via-blue-main to-yellow-main bg-clip-text text-transparent'>
+        <a href='#inicio' className='bg-linear-to-r from-pink-main via-blue-main to-yellow-main bg-clip-text text-transparent'>
           Grafi-K
-        </span>
+        </a>
       </div>
 
       {/* NAV DESKTOP (Oculto en móvil con 'hidden md:flex') */}

@@ -1,6 +1,6 @@
 import grafica from "../assets/grafica.jpeg";
 
-function About() {
+export default function About() {
   return (
     <section
       id="nosotros"
@@ -53,5 +53,3 @@ function About() {
     </section>
   );
 }
-
-export default About;
