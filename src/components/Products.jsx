@@ -16,6 +16,18 @@ export default function Products() {
     setProductoActivo(producto);
   };
 
+  const handlePrev = () => {
+    const index = productosAMostrar.indexOf(productoActivo);
+    const prevIndex = (index - 1 + productosAMostrar.length) % productosAMostrar.length;
+    setProductoActivo(productosAMostrar[prevIndex]);
+  };
+
+  const handleNext = () => {
+    const index = productosAMostrar.indexOf(productoActivo);
+    const nextIndex = (index + 1) % productosAMostrar.length;
+    setProductoActivo(productosAMostrar[nextIndex]);
+  };
+
   return (
     <section id="productos" className="py-24 px-6 lg:px-28 bg-gray-50">
       <div className="max-w-7xl mx-auto">
@@ -71,6 +83,8 @@ export default function Products() {
         <ModalProducto
           producto={productoActivo}
           onClose={() => setProductoActivo(null)}
+          onPrev={handlePrev}
+          onNext={handleNext}
         />
       )}
     </section>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function ModalProducto({ producto, onClose }) {
+export default function ModalProducto({ producto, onClose, onPrev, onNext }){
   const [opciones, setOpciones] = useState({});
   const [indiceActual, setIndiceActual] = useState(0);
 
@@ -71,6 +71,26 @@ export default function ModalProducto({ producto, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4 sm:p-6">
+
+      {/* Flecha Izquierda para retroceder al producto anterior */}
+      <button 
+        onClick={onPrev}
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-50 p-2"
+      >
+        <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Flecha Derecha para avanzar al siguiente producto */}
+      <button 
+        onClick={onNext}
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-50 p-2"
+      >
+        <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
       
       {/* CARD PRINCIPAL */}
       <div className="bg-bg-2 text-white md:w-full max-w-6xl h-[85vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
