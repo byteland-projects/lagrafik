@@ -1,6 +1,4 @@
-import React from "react";
-
-function Footer() {
+export default function Footer() {
   return (
     <section
       id="footer"
@@ -8,7 +6,7 @@ function Footer() {
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-15 py-12 px-8 lg:px-45 bg-bg-1 text-text-mid w-full place-items-start md:place-items-center">
         <div className="flex flex-col items-start">
-          <h3 className="text-3xl font-bold font-title mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-[length:200%_200%]">
+          <h3 className="text-3xl font-bold font-title mb-4 bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
             La Grafi-K
           </h3>
           <p className="text-left text-text-light text-md font-body">
@@ -99,7 +97,7 @@ function Footer() {
       </div>
 
       <div className="w-full bg-bg-1">
-        <div className="w-full h-[1px] bg-bg-2"></div>
+        <div className="w-full h-px bg-bg-2"></div>
       </div>
 
       <div className="w-full bg-bg-1 py-4 text-text-light">
@@ -111,4 +109,3 @@ function Footer() {
   );
 }
 
-export default Footer;

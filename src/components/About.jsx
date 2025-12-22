@@ -1,6 +1,6 @@
 import grafica from "../assets/grafica.jpeg";
 
-function About() {
+export default function About() {
   return (
     <section
       id="nosotros"
@@ -16,11 +16,11 @@ function About() {
           <h3 className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
             Nuestra historia
           </h3>
-          <div className="w-20 h-1 bg-gradient-to-r from-pink-main to-blue-main rounded-full mb-6"></div>
+          <div className="w-20 h-1 bg-linear-to-r from-pink-main to-blue-main rounded-full mb-6"></div>
         </div>
 
         <h2 className="text-4xl lg:text-5xl font-title font-extrabold mb-6 leading-tight">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-[length:200%_200%]">
+          <span className="bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
             30 años
           </span>{" "}
           en la <br /> Industria Gráfica
@@ -42,7 +42,7 @@ function About() {
       </div>
 
       <div className="flex items-center justify-center relative z-10 lg:pl-10 animate-fade-in-up">
-        <div className="relative p-3 bg-gradient-to-br from-pink-main/50 to-blue-main/50 rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-pink-main/30 hover:shadow-3xl transform hover:scale-[1.02]">
+        <div className="relative p-3 bg-linear-to-br from-pink-main/50 to-blue-main/50 rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-pink-main/30 hover:shadow-3xl transform hover:scale-[1.02]">
           <img
             src={grafica}
             alt="Sobre Nosotros"
@@ -53,5 +53,3 @@ function About() {
     </section>
   );
 }
-
-export default About;

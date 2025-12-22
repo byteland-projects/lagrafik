@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function ModalProducto({ producto, onClose }) {
+export default function ModalProducto({ producto, onClose, onPrev, onNext }){
   const [opciones, setOpciones] = useState({});
+  const [indiceActual, setIndiceActual] = useState(0);
 
   // Campos fijos que NO se renderizan dinámicamente
-  const CAMPOS_VIP = ["id", "nombre", "descripcion", "detalle", "imagen"];
+  const CAMPOS_VIP = ["id", "nombre", "descripcion", "detalle", "imagenes"];
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -53,8 +54,43 @@ export default function ModalProducto({ producto, onClose }) {
     window.open(url, "_blank");
   };
 
+
+//IMAGENES CARRUSEL
+  // Si el array está vacío, usamos el logo como fallback
+  const imagenes = producto.imagenes?.length > 0 ? producto.imagenes : ["/logo.png"];
+
+  const siguiente = (e) => {
+    e?.stopPropagation();
+    setIndiceActual((prev) => (prev + 1) % imagenes.length);
+  };
+
+  const anterior = (e) => {
+    e?.stopPropagation();
+    setIndiceActual((prev) => (prev - 1 + imagenes.length) % imagenes.length);
+  };
+
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4 sm:p-6">
+
+      {/* Flecha Izquierda para retroceder al producto anterior */}
+      <button 
+        onClick={onPrev}
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-50 p-2"
+      >
+        <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Flecha Derecha para avanzar al siguiente producto */}
+      <button 
+        onClick={onNext}
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-50 p-2"
+      >
+        <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
       
       {/* CARD PRINCIPAL */}
       <div className="bg-bg-2 text-white md:w-full max-w-6xl h-[85vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
@@ -70,24 +106,59 @@ export default function ModalProducto({ producto, onClose }) {
         </button>
 
         {/* COLUMNA 1: IMAGEN CUADRADA */}
-        <div className="w-full md:w-6/10 h-64 md:h-auto md:aspect-square relative bg-gray-800 shrink-0">
+        <div className="w-full md:w-6/10 h-64 md:h-auto md:aspect-square relative bg-gray-800 shrink-0 group overflow-hidden">
+          
+          {/* IMAGEN */}
           <img
-            src={producto.imagen || "/logo.png"}
+            src={imagenes[indiceActual]}
             alt={producto.nombre}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent md:hidden" />
+
+          {/* CONTROLES (Solo si hay más de 1 foto) */}
+          {imagenes.length > 1 && (
+            <>
+              {/* Botón Anterior */}
+              <button 
+                onClick={anterior}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+              >
+                &#10094;
+              </button>
+
+              {/* Botón Siguiente */}
+              <button 
+                onClick={siguiente}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+              >
+                &#10095;
+              </button>
+
+              {/* Indicadores (Puntos) */}
+              <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+                {imagenes.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={(e) => { e.stopPropagation(); setIndiceActual(idx); }}
+                    className={`w-2 h-2 rounded-full shadow-sm transition-all duration-300 ${
+                      idx === indiceActual 
+                        ? "bg-white scale-125" 
+                        : "bg-white/40 hover:bg-white/80"
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* Overlay gradiente para móvil (opcional, para que se lea texto encima si hubiera) */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none md:hidden" />
         </div>
 
         {/* COLUMNA 2: CONTENIDO */}
-        {/* Agregamos overflow-hidden aquí también para asegurar contención */}
         <div className="w-full md:w-1/2 flex flex-col h-full bg-bg-2 overflow-hidden">
           
-          {/* Área Scrolleable:
-              - flex-1: Toma el espacio disponible
-              - overflow-y-auto: Permite scroll vertical
-              - min-h-0: CRÍTICO. Evita que el flex item crezca más allá del contenedor padre.
-          */}
+          {/* Área Scrolleable:*/}
           <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar min-h-0">
             
             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white leading-tight">
