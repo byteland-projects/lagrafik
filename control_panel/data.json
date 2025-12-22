@@ -47,7 +47,8 @@
       "descripcion": "La forma más directa y económica de llegar a tus vecinos.",
       "detalle": "Los folletos permiten difundir tu negocio a todos los hogares de tu zona, incluso sin redes sociales.",
       "imagenes": [
-        "/imagenes/grafica.jpg"
+        "/imagenes/folletos1.png",
+        "/imagenes/folletos2.png"
       ],
       "medidas": [
         "11x17",
@@ -74,7 +75,8 @@
       "descripcion": "Transmiten profesionalismo y refuerzan tu marca.",
       "detalle": "Ideales para dejar una buena impresión y ampliar tu red de contactos de forma simple y efectiva.",
       "imagenes": [
-        "/imagenes/grafica.jpg"
+        "/imagenes/tarjetas1.png",
+        "/imagenes/tarjetas2.png"
       ],
       "medidas": [
         "9x5",
@@ -91,6 +93,25 @@
     },
     {
       "id": 6,
+      "nombre": "Stickers Troquelados",
+      "descripcion": "Versátiles y perfectos para reforzar tu marca.",
+      "detalle": "Sirven para packaging, señalización, promociones y más. Económicos y muy visibles.",
+      "imagenes": [
+        "/imagenes/stickers troquelados1.jpg",
+        "/imagenes/stickers troquelados2.png"
+      ],
+      "medidas": [
+        "4x4",
+        "5x5",
+        "6x6",
+        "Troquelados"
+      ],
+      "material": null,
+      "cantidad": null,
+      "color": null
+    },
+    {
+      "id": 7,
       "nombre": "Imanes",
       "descripcion": "Publicidad útil y visible todo el año.",
       "detalle": "Tus datos quedan siempre a la vista del cliente. Perfectos para servicios y deliverys.",
@@ -109,24 +130,6 @@
         "5000",
         "1000"
       ],
-      "color": null
-    },
-    {
-      "id": 7,
-      "nombre": "Stickers",
-      "descripcion": "Versátiles y perfectos para reforzar tu marca.",
-      "detalle": "Sirven para packaging, señalización, promociones y más. Económicos y muy visibles.",
-      "imagenes": [
-        "/imagenes/grafica.jpg"
-      ],
-      "medidas": [
-        "4x4",
-        "5x5",
-        "6x6",
-        "Troquelados"
-      ],
-      "material": null,
-      "cantidad": null,
       "color": null
     },
     {
