@@ -4,8 +4,10 @@ export default function Footer() {
       id="footer"
       className="w-full flex flex-col items-center bg-pink-main text-center p-0.5"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-15 py-12 px-8 lg:px-45 bg-bg-1 text-text-mid w-full place-items-start md:place-items-center">
-        <div className="flex flex-col items-start">
+      <div className="flex flex-col md:flex-row justify-center items-start md:items-start gap-12 md:gap-32 py-12 px-8 w-full bg-bg-1 text-text-mid">
+        
+        {/* COLUMNA 1: MARCA */}
+        <div className="flex flex-col items-start max-w-xs">
           <h3 className="text-3xl font-bold font-title mb-4 bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
             La Grafi-K
           </h3>
@@ -15,6 +17,7 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* COLUMNA 2: ENLACES */}
         <nav className="flex flex-col items-start">
           <h4 className="text-2xl font-semibold font-title mb-4 text-white">
             Enlaces Rápidos
@@ -55,7 +58,11 @@ export default function Footer() {
           </ul>
         </nav>
 
-        <nav className="flex flex-col items-start">
+        {/* SECCIÓN LEGALES (COMENTADA)
+            Al usar Flexbox, cuando descomentes esto, aparecerá automáticamente 
+            a la derecha y todo se volverá a centrar solo. 
+        */}
+        {/* <nav className="flex flex-col items-start">
           <h4 className="text-2xl font-semibold font-title mb-4 text-white">
             Letra chica
           </h4>
@@ -93,7 +100,8 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-        </nav>
+        </nav> */}
+        
       </div>
 
       <div className="w-full bg-bg-1">
