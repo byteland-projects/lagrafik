@@ -71,12 +71,13 @@ export default function Values() {
       <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-black/40 z-1"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header de la sección */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-12 h-0.5 bg-linear-to-r from-pink-main to-blue-main"></div>
-            <h3 className="text-sm md:text-base font-bold tracking-widest text-indigo-300 uppercase">
+            <p className="text-sm md:text-base font-bold tracking-widest text-indigo-300 uppercase">
               Lo que nos define
-            </h3>
+            </p>
             <div className="w-12 h-0.5 bg-linear-to-r from-blue-main to-yellow-main"></div>
           </div>
           
@@ -94,12 +95,12 @@ export default function Values() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {coreValues.map((value, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div
+              <li
                 key={index}
                 className={`relative group rounded-2xl overflow-hidden
                   transition-all duration-500 ease-out
@@ -119,6 +120,7 @@ export default function Values() {
                   <button
                     className="w-full flex justify-between items-center cursor-pointer group"
                     onClick={() => toggle(index)}
+                    aria-expanded={isOpen}
                   >
                     <div className="flex items-center gap-4">
                       <div className={`p-3 rounded-lg bg-white/5 ${value.colorClass}/10 group-hover:bg-white/10 transition-colors`}>
@@ -153,10 +155,10 @@ export default function Values() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
         <div className="mt-16 pt-8 border-t border-white/10">
           <p className="text-center text-indigo-200/60 text-sm">

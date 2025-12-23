@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { contacto } from "../../control_panel/contacto.json";
 
 export default function ModalProducto({ producto, onClose, onPrev, onNext }){
   const [opciones, setOpciones] = useState({});
@@ -50,7 +51,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
       }
     });
 
-    const url = `https://wa.me/541130608503?text=${encodeURIComponent(mensaje)}`;
+    const url = `${contacto.wp_link}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
   };
 
@@ -93,7 +94,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
       </button>
       
       {/* CARD PRINCIPAL */}
-      <div className="bg-bg-2 text-white md:w-full max-w-6xl h-[85vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
+      <article className="bg-bg-2 text-white md:w-full max-w-6xl h-[85vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
         
         {/* BOTÓN CERRAR */}
         <button
@@ -106,7 +107,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
         </button>
 
         {/* COLUMNA 1: IMAGEN CUADRADA */}
-        <div className="w-full md:w-6/10 h-64 md:h-auto md:aspect-square relative bg-gray-800 shrink-0 group overflow-hidden">
+        <figure className="w-full md:w-6/10 h-64 md:h-auto md:aspect-square relative bg-gray-800 shrink-0 group overflow-hidden">
           
           {/* IMAGEN */}
           <img
@@ -153,7 +154,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
 
           {/* Overlay gradiente para móvil (opcional, para que se lea texto encima si hubiera) */}
           <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none md:hidden" />
-        </div>
+        </figure>
 
         {/* COLUMNA 2: CONTENIDO */}
         <div className="w-full md:w-1/2 flex flex-col h-full bg-bg-2 overflow-hidden">
@@ -178,7 +179,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
 
                 if (Array.isArray(valor) && valor.length > 0) {
                   return (
-                    <div key={key}>
+                    <section key={key}>
                       <h3 className="text-left text-sm uppercase tracking-wider text-yellow-main font-bold mb-3">
                         {capitalizar(key)}
                       </h3>
@@ -198,7 +199,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
                           </button>
                         ))}
                       </div>
-                    </div>
+                    </section>
                   );
                 }
                 return null;
@@ -207,7 +208,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
           </div>
 
           {/* FOOTER STICKY */}
-          <div className="p-6 border-t border-gray-700/50 bg-bg-2 z-10 shrink-0">
+          <footer className="p-6 border-t border-gray-700/50 bg-bg-2 z-10 shrink-0">
             <button
               onClick={enviarWhatsApp}
               className="w-full py-4 rounded-xl text-lg font-bold 
@@ -216,10 +217,10 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
             >
               Solicitar presupuesto
             </button>
-          </div>
+          </footer>
           
         </div>
-      </div>
+      </article>
     </div>
   );
 }

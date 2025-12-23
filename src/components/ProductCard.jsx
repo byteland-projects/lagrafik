@@ -1,6 +1,6 @@
 export default function ProductCard({ producto, onOpenModal }) {
   return (
-    <div className="p-0.5 bg-linear-to-r from-pink-main to-blue-main rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+    <article className="p-0.5 bg-linear-to-r from-pink-main to-blue-main rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
       <div className="bg-white rounded-xl overflow-hidden flex flex-col h-full">
         <div className="h-40 overflow-hidden relative">
           <img
@@ -29,6 +29,6 @@ export default function ProductCard({ producto, onOpenModal }) {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

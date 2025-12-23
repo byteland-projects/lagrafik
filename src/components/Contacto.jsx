@@ -47,7 +47,7 @@ export default function Contacto() {
               </a>
 
               {/* Email */}
-              <a href="mailto:lagrafi-k@hotmail.com" className="flex items-start gap-4 group">
+              <a href={`mailto:${contacto.mail}`} className="flex items-start gap-4 group">
                  <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-main transition-colors duration-300">
                   <svg className="w-6 h-6 text-blue-main group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -60,7 +60,7 @@ export default function Contacto() {
               </a>
 
               {/* Dirección */}
-              <address className="flex items-start gap-4">
+              <address className="flex items-start gap-4 not-italic">
                 <div className="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center shrink-0">
                   <svg className="w-6 h-6 text-pink-main" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -119,7 +119,7 @@ export default function Contacto() {
           </div>
 
           {/* COLUMNA DERECHA: MAPA */}
-          <div className="h-full min-h-[400px] w-full relative group">
+          <figure className="h-full min-h-[400px] w-full relative group">
             {/* Contenedor con borde degradado CMYK */}
             <div className="absolute inset-0 bg-linear-to-r from-pink-main via-blue-main to-yellow-main rounded-2xl p-[3px] shadow-2xl transition-all duration-500">
                <div className="h-full w-full bg-white rounded-xl overflow-hidden">
@@ -135,7 +135,7 @@ export default function Contacto() {
                   ></iframe>
                </div>
             </div>
-          </div>
+          </figure>
 
         </div>
       </div>

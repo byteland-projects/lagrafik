@@ -6,7 +6,6 @@ export default function Header() {
 
   const hamburgerLine = `h-1 w-6 my-1 rounded-full bg-gradient-to-r from-pink-main via-blue-main to-yellow-main transition ease transform duration-300`;
 
-  // Scroll Spy (Detectar sección activa)
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['inicio', 'nosotros', 'productos', 'contacto'];
@@ -25,7 +24,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll Lock (Bloquear scroll cuando se abre menú móvil)
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -45,7 +43,6 @@ export default function Header() {
   return (
     <header className='flex items-center justify-between px-6 md:px-12 py-4 bg-white/90 backdrop-blur-md z-50 fixed w-full top-0 left-0 border-b border-gray-200 shadow-sm transition-all duration-300'>
       
-      {/* LOGO */}
       <div className='text-2xl font-bold select-none cursor-pointer z-50'>
         <span className='text-pink-main'>La </span>
         <a href='#inicio' className='bg-linear-to-r from-pink-main via-blue-main to-yellow-main bg-clip-text text-transparent'>
@@ -53,7 +50,6 @@ export default function Header() {
         </a>
       </div>
 
-      {/* NAV DESKTOP (Oculto en móvil con 'hidden md:flex') */}
       <nav>
         <ul className='hidden md:flex items-center gap-x-6 font-medium text-gray-600'>
           {navLinks.map((link) => {
@@ -82,8 +78,10 @@ export default function Header() {
         </ul>
       </nav>
 
-      {/* BOTÓN HAMBURGUESA (Solo visible en móvil 'md:hidden') */}
       <button
+        type="button"
+        aria-label="Abrir menú principal"
+        aria-expanded={menuOpen}
         className='md:hidden flex flex-col h-12 w-12 justify-center items-center group relative z-50'
         onClick={() => setMenuOpen(!menuOpen)}
       >
@@ -92,8 +90,7 @@ export default function Header() {
         <div className={`${hamburgerLine} ${menuOpen ? '-rotate-45 -translate-y-3 opacity-100' : 'opacity-100'}`} />
       </button>
 
-      {/* --- MENÚ MÓVIL (Overlay) --- */}
-      <div
+      <nav
         className={`
             fixed inset-0 h-screen w-screen
             bg-white/95 backdrop-blur-xl
@@ -107,7 +104,7 @@ export default function Header() {
             key={link.id}
             href={`#${link.id}`}
             onClick={() => {
-                setMenuOpen(false); // Cerramos el menú al hacer click
+                setMenuOpen(false);
                 setActiveSection(link.id);
             }}
             className={`text-3xl font-bold tracking-tight transition-all duration-300
@@ -117,7 +114,7 @@ export default function Header() {
             {link.label}
           </a>
         ))}
-      </div>
+      </nav>
     </header>
   );
 }

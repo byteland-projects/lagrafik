@@ -13,9 +13,9 @@ export default function About() {
 
       <div className="flex flex-col justify-center text-start relative z-10 animate-fade-in-up">
         <div>
-          <h3 className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
+          <p className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
             Nuestra historia
-          </h3>
+          </p>
           <div className="w-20 h-1 bg-linear-to-r from-pink-main to-blue-main rounded-full mb-6"></div>
         </div>
 
@@ -41,7 +41,7 @@ export default function About() {
         </p>
       </div>
 
-      <div className="flex items-center justify-center relative z-10 lg:pl-10 animate-fade-in-up">
+      <figure className="flex items-center justify-center relative z-10 lg:pl-10 animate-fade-in-up">
         <div className="relative p-3 bg-linear-to-br from-pink-main/50 to-blue-main/50 rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-pink-main/30 hover:shadow-3xl transform hover:scale-[1.02]">
           <img
             src={grafica}
@@ -49,7 +49,7 @@ export default function About() {
             className="rounded-xl shadow-xl max-w-full h-auto object-cover"
           />
         </div>
-      </div>
+      </figure>
     </section>
   );
 }

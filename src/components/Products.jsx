@@ -33,9 +33,9 @@ export default function Products() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="place-items-center">
-            <h3 className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
+            <p className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
               La Grafi-k productos
-            </h3>
+            </p>
           </div>
           <h2 className="text-4xl font-extrabold text-gray-900">
             Nuestros{" "}
@@ -48,6 +48,7 @@ export default function Products() {
           </p>
         </div>
 
+        {/* Controles de filtro */}
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
           {[
             { key: "digitales", label: "Digitales" },
@@ -56,6 +57,7 @@ export default function Products() {
             <button
               key={cat.key}
               onClick={() => setCategoriaActiva(cat.key)}
+              aria-pressed={categoriaActiva === cat.key}
               className={`px-6 py-2 rounded-full text-lg font-bold transition-all duration-300 border shadow-sm
                 ${
                   categoriaActiva === cat.key
@@ -68,6 +70,7 @@ export default function Products() {
           ))}
         </div>
 
+        {/* Productos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {productosAMostrar.map((producto) => (
             <ProductCard 

@@ -5,12 +5,13 @@ export default function Hero() {
       className="relative flex items-center py-35 pt-35 md:py-50 md:pt-50 overflow-hidden bg-linear-to-br from-yellow-50/90 via-white to-blue-50/90"
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-15 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-        {/* Columna Izquierda */}
+        
+        {/* Columna Izquierda: Contenido Principal */}
         <div className="space-y-6 text-center md:text-left animate-fade-in-up">
           <div>
-            <h2 className="text-sm md:text-base font-bold tracking-widest text-gray-500 uppercase mb-2">
+            <p className="text-sm md:text-base font-bold tracking-widest text-gray-500 uppercase mb-2">
               Imprenta Gráfica Profesional
-            </h2>
+            </p>
             <div className="w-26 h-1 bg-linear-to-r from-pink-main to-blue-main rounded-full mx-auto md:mx-0"></div>
           </div>
 
@@ -59,16 +60,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Columna Derecha: Logo */}
+        {/* Columna Derecha: Imagen Hero */}
         <div className="relative flex justify-center items-center">
-          <div className="relative">
+          <figure className="relative">
             <img
               src="/imagenes/logo.png"
               alt="Logo La Grafi-K"
               className="relative w-60 h-60 sm:w-76 sm:h-76 md:w-96 md:h-96 object-contain z-10 animate-float"
             />
-          </div>
+          </figure>
         </div>
+
       </div>
     </section>
   );

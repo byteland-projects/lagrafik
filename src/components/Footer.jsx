@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <section
+    <footer
       id="footer"
       className="w-full flex flex-col items-center bg-pink-main text-center p-0.5"
     >
@@ -15,7 +15,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col items-start">
+        <nav className="flex flex-col items-start">
           <h4 className="text-2xl font-semibold font-title mb-4 text-white">
             Enlaces Rápidos
           </h4>
@@ -53,9 +53,9 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-        </div>
+        </nav>
 
-        <div className="flex flex-col items-start">
+        <nav className="flex flex-col items-start">
           <h4 className="text-2xl font-semibold font-title mb-4 text-white">
             Letra chica
           </h4>
@@ -93,7 +93,7 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
 
       <div className="w-full bg-bg-1">
@@ -105,7 +105,6 @@ export default function Footer() {
           © 2025 Byteland. Todos los derechos reservados.
         </p>
       </div>
-    </section>
+    </footer>
   );
 }
-
