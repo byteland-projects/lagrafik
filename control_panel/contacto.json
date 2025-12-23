@@ -1,0 +1,19 @@
+{
+  "contacto": {
+    "number": "+54 9 11 3193-1833",
+    "wp_link": "https://wa.me/5491131931833",
+    "email": "lagrafi-k@hotmail.com",
+    "direccion": "Cnel. Lorenzo Barcala 656",
+    "localidad": "Ituzaingó, Buenos Aires"
+  },
+
+  "horario": {
+    "_comment": "//Cambie 'CERRADO' por el horario real si es necesario",
+    "lunes_a_viernes": "10:30 - 18:30 hs",
+    "sabados": "CERRADO",
+    "otros": "CERRADO"
+  }
+}
+
+
+    

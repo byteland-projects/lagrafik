@@ -1,3 +1,5 @@
+import { contacto, horario } from '../../control_panel/contacto.json';
+
 export default function Contacto() {
   return (
     <section id="contacto" className="py-24 bg-blue-50 relative overflow-hidden">
@@ -10,9 +12,9 @@ export default function Contacto() {
           {/* COLUMNA IZQUIERDA: INFORMACIÓN */}
           <div className="space-y-8 animate-fade-in-up">
             <div>
-              <h3 className="text-sm font-bold tracking-widest text-blue-main uppercase mb-2">
+              <p className="text-sm font-bold tracking-widest text-blue-main uppercase mb-2">
                 Estamos para ayudarte
-              </h3>
+              </p>
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
                 Contactanos
               </h2>
@@ -26,7 +28,7 @@ export default function Contacto() {
               
               {/* WhatsApp */}
               <a 
-                href="https://wa.me/5491131931833" 
+                href={contacto.wp_link} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300"
@@ -40,7 +42,7 @@ export default function Contacto() {
                 </div>
                 <div>
                   <h4 className="text-left font-bold text-gray-900">WhatsApp</h4>
-                  <p className="text-gray-600 text-lg group-hover:text-green-600 transition-colors">11 3193-1833</p>
+                  <p className="text-gray-600 text-lg group-hover:text-green-600 transition-colors">{contacto.number}</p>
                 </div>
               </a>
 
@@ -53,12 +55,12 @@ export default function Contacto() {
                 </div>
                 <div>
                   <h4 className="text-left font-bold text-gray-900">E-mail</h4>
-                  <p className="text-gray-600 group-hover:text-blue-main transition-colors">lagrafi-k@hotmail.com</p>
+                  <p className="text-gray-600 group-hover:text-blue-main transition-colors">{contacto.email}</p>
                 </div>
               </a>
 
               {/* Dirección */}
-              <div className="flex items-start gap-4">
+              <address className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center shrink-0">
                   <svg className="w-6 h-6 text-pink-main" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -67,10 +69,10 @@ export default function Contacto() {
                 </div>
                 <div>
                   <h4 className="text-left font-bold text-gray-900">Dirección</h4>
-                  <p className="text-gray-600">Cnel. Lorenzo Barcala 656</p>
-                  <p className="text-gray-500 text-sm">Ituzaingó, Buenos Aires</p>
+                  <p className="text-gray-600">{contacto.direccion}</p>
+                  <p className="text-gray-500 text-sm">{contacto.localidad}</p>
                 </div>
-              </div>
+              </address>
 
               {/* Horarios */}
               <div className="flex items-start gap-4">
@@ -84,13 +86,31 @@ export default function Contacto() {
                   <div className="text-gray-600 space-y-1">
                     <p className="flex justify-between w-full md:w-64">
                       <span>Lunes a Viernes:</span>
-                      <span className="font-medium text-gray-900">10:30 - 18:30 hs</span>
+                      <span className="font-medium text-gray-900">{horario.lunes_a_viernes}</span>
                     </p>
                     <p className="text-sm text-gray-500">(Horario de corrido)</p>
-                    <p className="flex justify-between w-full md:w-64 pt-2 border-t border-gray-100 mt-2">
+
+                    {(horario.sabados != "CERRADO" ) && (
+                      <p className="flex justify-between w-full md:w-64">
+                        <span>Sábados:</span>
+                        <span className="font-medium text-gray-900">{horario.sabados}</span>
+                      </p>
+                    )}
+                    
+                    {(horario.sabados == "CERRADO" ) && (
+                    <p className="flex justify-between w-full md:w-64">
                       <span className="text-red-400">Sáb, Dom y Feriados:</span>
                       <span className="font-bold text-red-400">CERRADO</span>
                     </p>
+                    )}
+
+                    {(horario.sabados != "CERRADO" ) && (
+                    <p className="flex justify-between w-full md:w-64">
+                      <span className="text-red-400">Dom y Feriados:</span>
+                      <span className="font-bold text-red-400">CERRADO</span>
+                    </p>
+                    )}
+
                   </div>
                 </div>
               </div>
