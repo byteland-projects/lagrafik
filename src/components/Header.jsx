@@ -37,6 +37,8 @@ export default function Header() {
     { id: 'inicio', label: 'Inicio', colorText: 'text-pink-main', gradientClass: 'via-pink-main' },
     { id: 'nosotros', label: 'Nosotros', colorText: 'text-blue-main', gradientClass: 'via-blue-main' },
     { id: 'productos', label: 'Productos', colorText: 'text-yellow-main', gradientClass: 'via-yellow-main' },
+    { id: 'descargas', label: 'Descargas', colorText: 'text-purple-main', gradientClass: 'via-purple-main' },
+    { id: 'letra-chica', label: 'Letra Chica', colorText: 'text-orange-main', gradientClass: 'via-orange-main' },
     { id: 'contacto', label: 'Contacto', colorText: 'text-green-main', gradientClass: 'via-green-main' },
   ];
 
