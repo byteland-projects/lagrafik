@@ -110,8 +110,17 @@ export default function Footer() {
 
       <div className="w-full bg-bg-1 py-4 text-text-light">
         <p className="text-sm">
-          © 2025 Byteland. Todos los derechos reservados.
-        </p>
+            © {new Date().getFullYear()} Sitio desarrollado por{" "}
+            <a
+              href="https://byteland.com.ar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className='font-semibold bg-linear-to-r from-pink-main via-blue-main to-yellow-main bg-clip-text text-transparent hover:text-white'
+            >
+              Byteland
+            </a>
+            . Todos los derechos reservados.
+          </p>
       </div>
     </footer>
   );
