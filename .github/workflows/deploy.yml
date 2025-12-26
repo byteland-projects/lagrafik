@@ -30,5 +30,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/ # Carpeta local donde está el build
-          server-dir: ./public_html/ # Carpeta destino en Hostinger
+          server-dir: /home/u870960114/domains/lagrafik.com/public_html # Carpeta destino en Hostinger
           dangerous-clean-slate: true # ¡OJO! Esto borra lo que había antes en public_html para poner lo nuevo
