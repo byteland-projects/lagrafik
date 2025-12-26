@@ -16,7 +16,7 @@ jobs:
       - name: 2. Instalar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # O la versión que uses
+          node-version: '20' # O la versión que uses
 
       - name: 3. Instalar dependencias y construir
         run: |
