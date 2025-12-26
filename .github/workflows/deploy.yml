@@ -1,34 +1,34 @@
-name: Deploy to Hostinger
+name: Deploy Vite React to Hostinger
 
 on:
   push:
     branches:
-      - main  # O 'master', según tu rama principal
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1. Obtener el código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: 2. Instalar Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # O la versión que uses
+          node-version: 20
+          cache: npm
 
-      - name: 3. Instalar dependencias y construir
-        run: |
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm ci
 
-      - name: 4. Subir a Hostinger via FTP
+      - name: Build
+        run: npm run build
+
+      - name: Deploy dist to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/ # Carpeta local donde está el build
-          server-dir: ./public_html/ # Carpeta destino en Hostinger
-          dangerous-clean-slate: true # ¡OJO! Esto borra lo que había antes en public_html para poner lo nuevo 
+          local-dir: dist/
+          server-dir: public_html/
