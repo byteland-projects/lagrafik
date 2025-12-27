@@ -7,7 +7,7 @@ export const productosDigitales = data.digitales;
 export const productosFisicos = data.fisicos;
 
 export default function Products() {
-  const [categoriaActiva, setCategoriaActiva] = useState("digitales");
+  const [categoriaActiva, setCategoriaActiva] = useState("fisicos");
   const productosAMostrar =
     categoriaActiva === "fisicos" ? productosFisicos : productosDigitales;
   const [productoActivo, setProductoActivo] = useState(null);
