@@ -94,7 +94,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
       </button>
       
       {/* CARD PRINCIPAL */}
-      <article className="bg-bg-2 text-white w-full md:w-full h-auto max-h-[90vh] max-w-6xl rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
+      <article className="bg-bg-2 text-white w-full md:w-full h-auto max-h-[90vh] max-w-md md:max-w-3xl lg:max-w-6xl rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
           
         {/* BOTÓN CERRAR */}
         <button
