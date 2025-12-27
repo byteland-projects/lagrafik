@@ -94,8 +94,8 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
       </button>
       
       {/* CARD PRINCIPAL */}
-      <article className="bg-bg-2 text-white md:w-full max-w-6xl h-[85vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
-        
+      <article className="bg-bg-2 text-white w-full md:w-full h-auto max-h-[90vh] max-w-6xl rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-fadeIn">
+          
         {/* BOTÓN CERRAR */}
         <button
           onClick={onClose}
@@ -106,15 +106,13 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
           </svg>
         </button>
 
-        {/* COLUMNA 1: IMAGEN CUADRADA */}
-        <figure className="w-full md:w-6/10 h-64 md:h-auto md:aspect-square relative bg-gray-800 shrink-0 group overflow-hidden">
-          
-          {/* IMAGEN */}
-          <img
-            src={imagenes[indiceActual]}
-            alt={producto.nombre}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out"
-          />
+        {/* COLUMNA 1: IMAGEN CUADRADA 1:1 */}
+        <figure className="w-full md:w-1/2 lg:w-7/12 aspect-square relative bg-gray-800 shrink-0 group overflow-hidden">
+    <img
+      src={imagenes[indiceActual]}
+      alt={producto.nombre}
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out"
+    />
 
           {/* CONTROLES (Solo si hay más de 1 foto) */}
           {imagenes.length > 1 && (
@@ -157,7 +155,7 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
         </figure>
 
         {/* COLUMNA 2: CONTENIDO */}
-        <div className="w-full md:w-1/2 flex flex-col h-full bg-bg-2 overflow-hidden">
+        <div className="w-full md:w-1/2 flex flex-col lg:h-auto h-full bg-bg-2 overflow-hidden">
           
           {/* Área Scrolleable:*/}
           <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar min-h-0">
