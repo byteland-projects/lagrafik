@@ -8,7 +8,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'nosotros', 'productos', 'contacto'];
+      const sections = ['inicio', 'nosotros', 'productos', 'descargas', 'letra-chica', 'contacto'];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
