@@ -11,7 +11,7 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     }
   ],
   "fisicos": [
@@ -64,7 +64,10 @@
         "5000",
         "10000"
       ],
-      "color": null
+      "faz": [
+        "simple",
+        "doble"
+      ]
     },
     {
       "id": 5,
@@ -78,7 +81,7 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
       "id": 6,
@@ -92,10 +95,26 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
       "id": 7,
+      "nombre": "Volantes",
+      "descripcion": "Publicidad rápida y efectiva para repartir masivamente.",
+      "detalle": "Ideales para promociones temporales y llegada directa a clientes potenciales.",
+      "imagenes": [
+        "/imagenes/volantes.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": [
+        "simple",
+        "doble"
+      ]
+    },
+    {
+      "id": 8,
       "nombre": "Imanes",
       "descripcion": "Publicidad útil y visible todo el año.",
       "detalle": "Tus datos quedan siempre a la vista del cliente. Perfectos para servicios y deliverys.",
@@ -105,10 +124,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 8,
+      "id": 9,
       "nombre": "Talonarios / Planillas",
       "descripcion": "Orden y profesionalismo para tu emprendimiento.",
       "detalle": "Facilitan la organización diaria y mejoran la presentación de tus procesos.",
@@ -118,10 +137,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 9,
+      "id": 10,
       "nombre": "Banners",
       "descripcion": "Grandes, llamativos e ideales para promociones.",
       "detalle": "Atraen miradas al instante y se usan en negocios, eventos, fiestas y más.",
@@ -131,10 +150,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 10,
+      "id": 11,
       "nombre": "Señalización",
       "descripcion": "Carteles plásticos resistentes y duraderos.",
       "detalle": "Perfectos para indicar, decorar o informar en cualquier espacio.",
@@ -144,10 +163,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 11,
+      "id": 12,
       "nombre": "Pancartas",
       "descripcion": "Económicas, visibles y efectivas para difundir.",
       "detalle": "Ideales para lugares estratégicos y campañas de alta exposición.",
@@ -157,10 +176,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 12,
+      "id": 13,
       "nombre": "Plotter (Vinilo cortado)",
       "descripcion": "Vinilo de alta durabilidad para vidrieras y autos.",
       "detalle": "Dura hasta tres veces más que lo impreso. Ideal para marcas y cartelería.",
@@ -170,10 +189,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 13,
+      "id": 14,
       "nombre": "Fotos",
       "descripcion": "Edición e impresión profesional sin complicaciones.",
       "detalle": "Ajustamos tamaño, luz y color para que tus fotos queden perfectas.",
@@ -183,10 +202,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 14,
+      "id": 15,
       "nombre": "Etiquetas plásticas",
       "descripcion": "Elegantes y modernas para destacar tu producto.",
       "detalle": "Aumentan la percepción de calidad y hacen que tu marca se vea más profesional.",
@@ -196,10 +215,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 15,
+      "id": 16,
       "nombre": "Plastificados",
       "descripcion": "Protección rígida para documentos y fotos.",
       "detalle": "Ideales para exterior, humedad o uso frecuente. Resistentes y prácticos.",
@@ -209,10 +228,10 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     },
     {
-      "id": 16,
+      "id": 17,
       "nombre": "Llaveros",
       "descripcion": "Un regalo útil que mantiene tu marca presente.",
       "detalle": "Los clientes los usan todos los días, por eso son tan efectivos como publicidad.",
@@ -222,7 +241,7 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "color": null
+      "faz": null
     }
   ]
 }
