@@ -103,11 +103,14 @@
       "descripcion": "Publicidad rápida y efectiva para repartir masivamente.",
       "detalle": "Ideales para promociones temporales y llegada directa a clientes potenciales.",
       "imagenes": [
-        "/imagenes/volantes.png"
+        "/imagenes/volantes b-n.jpg"
       ],
-      "medidas": null,
+      "medidas": [
+        "10x15",
+        "15x20"
+      ],  
       "material": null,
-      "cantidad": null,
+      "cantidad": 1000, 2000, 4000
       "faz": [
         "simple",
         "doble"
