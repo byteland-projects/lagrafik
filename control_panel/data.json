@@ -43,7 +43,7 @@
   "fisicos": [
     {
       "id": 4,
-      "nombre": "Folletos Offset Color",
+      "nombre": "Folletos offset color",
       "descripcion": "La forma más directa y económica de llegar a tus vecinos.",
       "detalle": "Los folletos permiten difundir tu negocio a todos los hogares de tu zona, incluso sin redes sociales.",
       "imagenes": [
@@ -66,7 +66,7 @@
     },
     {
       "id": 5,
-      "nombre": "Folletos Láser Color",
+      "nombre": "Folletos láser color",
       "descripcion": "Impresión de alta calidad con rápida entrega.",
       "detalle": "La tecnología laser permite una rapidez de entrega insuperable sin comprometer la nitidez del color. Ideal para pedidos urgentes.",
       "imagenes": [
@@ -161,4 +161,113 @@
         "/imagenes/talonarios.png"
       ],
       "medidas": null,
-      "material":
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 11,
+      "nombre": "Banners",
+      "descripcion": "Grandes, llamativos e ideales para promociones.",
+      "detalle": "Atraen miradas al instante y se usan en negocios, eventos, fiestas y más.",
+      "imagenes": [
+        "/imagenes/banners.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 12,
+      "nombre": "Señalización",
+      "descripcion": "Carteles plásticos resistentes y duraderos.",
+      "detalle": "Perfectos para indicar, decorar o informar en cualquier espacio.",
+      "imagenes": [
+        "/imagenes/señalizacion.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 13,
+      "nombre": "Pancartas",
+      "descripcion": "Económicas, visibles y efectivas para difundir.",
+      "detalle": "Ideales para lugares estratégicos y campañas de alta exposición.",
+      "imagenes": [
+        "/imagenes/pancartas.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 14,
+      "nombre": "Plotter (Vinilo cortado)",
+      "descripcion": "Vinilo de alta durabilidad para vidrieras y autos.",
+      "detalle": "Dura hasta tres veces más que lo impreso. Ideal para marcas y cartelería.",
+      "imagenes": [
+        "/imagenes/plotter.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 15,
+      "nombre": "Fotos",
+      "descripcion": "Edición e impresión profesional sin complicaciones.",
+      "detalle": "Ajustamos tamaño, luz y color para que tus fotos queden perfectas.",
+      "imagenes": [
+        "/imagenes/fotos.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 16,
+      "nombre": "Etiquetas plásticas",
+      "descripcion": "Elegantes y modernas para destacar tu producto.",
+      "detalle": "Aumentan la percepción de calidad y hacen que tu marca se vea más profesional.",
+      "imagenes": [
+        "/imagenes/etiquetas.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 17,
+      "nombre": "Plastificados",
+      "descripcion": "Protección rígida para documentos y fotos.",
+      "detalle": "Ideales para exterior, humedad o uso frecuente. Resistentes y prácticos.",
+      "imagenes": [
+        "/imagenes/plastificados.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    },
+    {
+      "id": 18,
+      "nombre": "Llaveros",
+      "descripcion": "Un regalo útil que mantiene tu marca presente.",
+      "detalle": "Los clientes los usan todos los días, por eso son tan efectivos como publicidad.",
+      "imagenes": [
+        "/imagenes/llaveros.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null
+    }
+  ]
+}
