@@ -46,13 +46,15 @@ export default function Header() {
     <header className='flex items-center justify-between px-6 md:px-12 py-4 bg-white/90 backdrop-blur-md z-50 fixed w-full top-0 left-0 border-b border-gray-200 shadow-sm transition-all duration-300'>
       
       <div className='text-2xl font-bold select-none cursor-pointer z-50'>
-        <span className='text-pink-main'>La </span>
-        <a href='#inicio' className='bg-linear-to-r from-pink-main via-blue-main to-yellow-main bg-clip-text text-transparent'>
-          Grafi-K
+        <a href='#inicio' title="Ir al inicio de La Grafi-K">
+          <span className='text-pink-main'>La </span>
+          <span className='bg-linear-to-r from-pink-main via-blue-main to-yellow-main bg-clip-text text-transparent'>
+            Grafi-K
+          </span>
         </a>
       </div>
 
-      <nav>
+      <nav aria-label="Navegación principal" className="hidden md:block">
         <ul className='hidden md:flex items-center gap-x-6 font-medium text-gray-600'>
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
@@ -61,10 +63,11 @@ export default function Header() {
                 <a
                   href={`#${link.id}`}
                   onClick={() => setActiveSection(link.id)}
+                  title={`Ir a la sección de ${link.label}`}
                   className={`
-                    px-3 py-2 rounded-lg transition-all duration-300 
+                    px-3 py-2 rounded-lg transition-all duration-300
                     hover:bg-gray-100/50 hover:${link.colorText}
-                    ${isActive ? `${link.colorText} bg-gray-50` : ''} 
+                    ${isActive ? `${link.colorText} bg-gray-50` : ''}
                   `}
                 >
                   {link.label}
@@ -84,6 +87,7 @@ export default function Header() {
         type="button"
         aria-label="Abrir menú principal"
         aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
         className='md:hidden flex flex-col h-12 w-12 justify-center items-center group relative z-50'
         onClick={() => setMenuOpen(!menuOpen)}
       >
@@ -93,6 +97,8 @@ export default function Header() {
       </button>
 
       <nav
+        id="mobile-menu"
+        aria-label="Menú móvil"
         className={`
             fixed inset-0 h-screen w-screen
             bg-white/95 backdrop-blur-xl
@@ -105,12 +111,13 @@ export default function Header() {
           <a
             key={link.id}
             href={`#${link.id}`}
+            title={`Sección ${link.label}`}
             onClick={() => {
                 setMenuOpen(false);
                 setActiveSection(link.id);
             }}
             className={`text-3xl font-bold tracking-tight transition-all duration-300
-                ${activeSection === link.id ? link.colorText : 'text-gray-600'}
+              ${activeSection === link.id ? link.colorText : 'text-gray-600'}
             `}
           >
             {link.label}

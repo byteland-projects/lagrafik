@@ -57,12 +57,14 @@ export default function Values() {
   return (
     <section
       id="valores"
+      aria-labelledby="valores-title"
       className="relative py-24 px-6 lg:px-40 text-white overflow-hidden"
     >
-      <div className="absolute inset-0 z-0 bg-linear-to-b from-bg-1 via-bg-1/80 to-black"></div>
-      
+      {/* Fondos y Overlays (con aria-hidden para que Google no intente "leer" una imagen de fondo) */}
+      <div className="absolute inset-0 z-0 bg-linear-to-b from-bg-1 via-bg-1/80 to-black" aria-hidden="true"></div>
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
+        aria-hidden="true"
         style={{ 
           backgroundImage: `url('${fondo}')`,
           backgroundAttachment: 'fixed'
@@ -81,17 +83,16 @@ export default function Values() {
             <div className="w-12 h-0.5 bg-linear-to-r from-blue-main to-yellow-main"></div>
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-title font-extrabold text-white leading-tight mb-4">
+          <h2 id="valores-title" className="text-4xl lg:text-5xl font-title font-extrabold text-white leading-tight mb-4">
             Los{" "}
             <span className="bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
               4 Pilares
             </span>{" "}
-            de nuestro trabajo
+            de nuestro servicio gráfico
           </h2>
           
           <p className="text-lg text-indigo-200/80 max-w-2xl mx-auto">
-            La experiencia de 30 años nos enseñó que estos valores son esenciales 
-            para entregar excelencia en cada proyecto.
+            Garantizamos excelencia en cada proyecto gracias a nuestros valores fundamentales como gráfica profesional.
           </p>
         </div>
 
@@ -121,10 +122,11 @@ export default function Values() {
                     className="w-full flex justify-between items-center cursor-pointer group"
                     onClick={() => toggle(index)}
                     aria-expanded={isOpen}
+                    aria-controls={`desc-valor-${index}`}
                   >
                     <div className="flex items-center gap-4">
                       <div className={`p-3 rounded-lg bg-white/5 ${value.colorClass}/10 group-hover:bg-white/10 transition-colors`}>
-                        <value.Icon className={`w-7 h-7 ${value.colorClass}`} />
+                        <value.Icon className={`w-7 h-7 ${value.colorClass}`} aria-hidden="true"/>
                       </div>
                       <div className="text-left">
                         <h3 className="text-xl font-bold font-title text-white uppercase tracking-tight">
@@ -143,6 +145,7 @@ export default function Values() {
                   </button>
 
                   <div
+                    id={`desc-valor-${index}`}
                     className={`
                       overflow-hidden transition-all duration-500 ease-out
                       ${isOpen ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}
