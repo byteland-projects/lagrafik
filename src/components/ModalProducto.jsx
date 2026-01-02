@@ -10,6 +10,8 @@ export default function ModalProducto({ producto, onClose, onPrev, onNext }){
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    
+    setIndiceActual(prev => prev !== 0 ? 0 : prev);
 
     // Pre-seleccionar la primera opción de cada lista
     const defaults = {};
