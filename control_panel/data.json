@@ -52,7 +52,8 @@
       ],
       "medidas": [
         "10x15",
-        "15x20"
+        "15x20",
+        "20x30"
       ],
       "material": null,
       "cantidad": [
@@ -99,8 +100,17 @@
       ],
       "medidas": null,
       "material": null,
-      "cantidad": null,
-      "faz": null
+      "cantidad": [
+        "100",
+        "200",
+        "300",
+        "500",
+        "1000"
+      ],
+      "faz": [
+        "Simple",
+        "Doble"
+      ]
     },
     {
       "id": 7,
