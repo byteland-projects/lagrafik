@@ -14,18 +14,17 @@ export default function Hero() {
             </p>
             <div className="w-26 h-1 bg-linear-to-r from-pink-main to-blue-main rounded-full mx-auto md:mx-0 mb-4"></div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
-              La Grafi-K: Tus ideas en <br />
-              <span className="bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
-                Alta Resolución
+            <h1 className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight">
+              La Grafi-K:  <br /><span className="lg:text-3xl">Publicidad física y digital para </span> <br />
+              <span className="lg:text-3xl bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
+                  Conectar tu marca con tu público!
               </span>
             </h1>
           </header>
 
           <p className="text-md md:text-lg text-gray-600 max-w-lg mx-auto md:mx-0 leading-relaxed">
-            Especialistas en <span className="font-semibold text-gray-800">impresión publicitaria</span>: desde tarjetas de presentación hasta gigantografías.
-            <span className="font-semibold"> Calidad, rapidez</span> y los
-            colores más vivos para tu negocio.
+            Con <span className="font-semibold text-gray-800">30 años de experiencia</span>, nos distinguimos por integrar 
+            <span className="font-semibold text-gray-800"> publicidad física y digital</span>, aportando soluciones que evolucionan con el mercado.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
