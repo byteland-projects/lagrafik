@@ -106,7 +106,7 @@ export default function Values() {
           <h2 id="valores-title" className="text-4xl lg:text-5xl font-title font-extrabold text-white leading-tight mb-4">
             Los{" "}
             <span className="bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
-              4 Pilares
+              6 Pilares
             </span>{" "}
             de nuestro servicio gráfico
           </h2>
