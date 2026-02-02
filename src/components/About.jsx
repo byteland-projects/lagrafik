@@ -54,21 +54,20 @@ export default function About() {
         </p>
       </div>
 
-      {/* SECCIÓN DE IMÁGENES SUPERPUESTAS */}
-      <figure className="relative z-10 lg:pl-10 min-h-[400px] md:min-h-[500px] flex items-center animate-fade-in-up my-8 lg:my-0">
+{/* SECCIÓN DE IMÁGENES */}
+      <figure className="relative z-10 lg:pl-10 flex flex-col gap-6 xl:block xl:min-h-[500px] animate-fade-in-up my-8 lg:my-0">
         
-        {/* Imagen de Fondo (Arriba a la derecha - Ej. la reunión) */}
-        {/* Nota: Usa 'grafica2' aquí si quieres que sea diferente a la del frente */}
-        <div className="absolute top-0 right-0 w-3/4 md:w-2/3 p-2 bg-linear-to-tl from-blue-main/30 to-pink-main/30 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-[1.01] hover:z-30">
+        {/* Imagen 1 (Fondo / Arriba) */}
+        <div className="relative w-full xl:absolute xl:top-0 xl:right-0 xl:w-2/3 p-2 bg-linear-to-tl from-blue-main/30 to-pink-main/30 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-[1.01] hover:z-30">
             <img
-              src={grafica} // <-- OJO: Aquí iría 'grafica2' idealmente
+              src={grafica} 
               alt="Equipo de trabajo"
               className="rounded-xl w-full h-auto object-cover aspect-video grayscale-30 hover:grayscale-0 transition-all duration-500"
             />
         </div>
 
-        {/* Imagen Frontal (Abajo a la izquierda - Ej. el operario) */}
-        <div className="absolute bottom-0 left-0 z-20 w-3/4 md:w-2/3 p-3 bg-linear-to-br from-pink-main/60 to-blue-main/60 rounded-2xl shadow-2xl shadow-pink-main/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-pink-main/40">
+        {/* Imagen 2 (Frente / Abajo) */}
+        <div className="relative w-full xl:absolute xl:bottom-0 xl:left-0 z-20 xl:w-2/3 p-3 bg-linear-to-br from-pink-main/60 to-blue-main/60 rounded-2xl shadow-2xl shadow-pink-main/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-pink-main/40">
           <img
             src={grafica2}
             alt="Operario de maquinaria"
