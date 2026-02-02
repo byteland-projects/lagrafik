@@ -22,7 +22,7 @@ export default function ProductCard({ producto, onOpenModal }) {
           <div className="flex justify-end mt-auto">
             <button
               onClick={() => onOpenModal(producto)}
-              className="px-3 py-1 text-sm bg-linear-to-r from-pink-main to-yellow-main text-white font-semibold rounded-full shadow hover:shadow-green-main/30 transition-all"
+              className="px-3 py-1 text-sm bg-linear-to-r from-pink-main to-yellow-main text-white font-semibold rounded-full shadow transition-all hover:shadow-lg hover:shadow-blue-main/50 hover:-translate-y-0.5"
             >
               Ver detalle
             </button>

@@ -1,14 +1,13 @@
 import grafica from "../assets/grafica.jpeg";
+import grafica2 from "../assets/grafica2.jpeg";
 
 export default function About() {
   return (
     <section
       id="nosotros"
-      aria-labelledby="about-title"
       className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-28 px-8 lg:px-40 bg-bg-1 text-text-light relative overflow-hidden"
     >
-      {/* Blobs decorativos - con aria-hidden para que Google los ignore */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" aria-hidden="true">
+      <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-main rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-main rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
       </div>
@@ -16,42 +15,63 @@ export default function About() {
       <div className="flex flex-col justify-center text-start relative z-10 animate-fade-in-up">
         <div>
           <p className="text-sm md:text-base font-bold tracking-widest text-text-mid uppercase mb-2">
-            Trayectoria en servicios gráficos
+            Nuestra historia
           </p>
           <div className="w-20 h-1 bg-linear-to-r from-pink-main to-blue-main rounded-full mb-6"></div>
         </div>
 
-        {/* H2 principal con ID para el aria-labelledby */}
-        <h2 id="about-title" className="text-4xl lg:text-5xl font-title font-extrabold mb-6 leading-tight text-white">
+        <h2 className="text-4xl lg:text-5xl font-title font-extrabold mb-6 leading-tight">
           <span className="bg-clip-text text-transparent bg-linear-to-r from-pink-main via-blue-main to-yellow-main animate-gradient bg-size-[200%_200%]">
             30 años
           </span>{" "}
-          liderando la <br /> Industria Gráfica
+          en la <br /> Industria Gráfica
         </h2>
 
-        <div className="space-y-4 text-md lg:text-lg text-text-light max-w-xl">
-          <p>
-            En <strong>La Grafi-K</strong> somos un equipo apasionado por el diseño y la
-            comunicación visual. Nuestra misión es que la publicidad sea una herramienta 
-            accesible y de alta calidad para cada emprendimiento o empresa.
-          </p>
+        <p className="text-md lg:text-lg mb-6 max-w-xl text-text-light">
+          Somos una gráfica especializada, con 30 años de trayectoria, que supo
+          unir lo mejor de dos mundos: productos publicitarios físicos y
+          digitales, una dualidad que hoy marca la diferencia. Ayudamos a
+          empresas y emprendedores a comunicar mejor, combinando diseño,
+          impresión y soluciones digitales estratégicas.
+        </p>
 
-          <p>
-            Con tres décadas de experiencia, ofrecemos <strong>atención real a los detalles</strong> y un trato
-            humano. Acompañamos a cada cliente para asegurar que su marca luzca 
-            profesional, atractiva y destaque en el mercado.
-          </p>
-        </div>
+        <p className="text-md lg:text-lg max-w-xl text-tex-mid">
+          También ofrecemos papelería comercial. Sabemos que implica un gasto
+          fijo, pero cuando se hace correctamente, reduce costos y mejora la
+          eficiencia de tu emprendimiento. Nosotros sabemos exactamente cómo
+          lograrlo.
+        </p>
+
+        <p className="text-md lg:text-lg max-w-xl text-tex-mid">
+          Nuestro valor agregado está en el asesoramiento especializado, la
+          atención personalizada y el buen trato. No vendemos productos al azar:
+          proponemos soluciones pensadas para cada necesidad.
+        </p>
+
+        <p className="text-md lg:text-lg max-w-xl text-tex-mid">
+          Acompañamos tu crecimiento con comunicación constante. Nuestra meta es
+          tu éxito.
+        </p>
       </div>
 
-      <figure className="flex items-center justify-center relative z-10 lg:pl-10 animate-fade-in-up">
-        <div className="relative p-3 bg-linear-to-br from-pink-main/50 to-blue-main/50 rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-pink-main/30 hover:shadow-3xl transform hover:scale-[1.02]">
+{/* SECCIÓN DE IMÁGENES */}
+      <figure className="relative z-10 lg:pl-10 flex flex-col gap-6 xl:block xl:min-h-[500px] animate-fade-in-up my-8 lg:my-0">
+        
+        {/* Imagen 1 (Fondo / Arriba) */}
+        <div className="relative w-full xl:absolute xl:top-0 xl:right-0 xl:w-2/3 p-2 bg-linear-to-tl from-blue-main/30 to-pink-main/30 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-[1.01] hover:z-30">
+            <img
+              src={grafica} 
+              alt="Equipo de trabajo"
+              className="rounded-xl w-full h-auto object-cover aspect-video grayscale-30 hover:grayscale-0 transition-all duration-500"
+            />
+        </div>
+
+        {/* Imagen 2 (Frente / Abajo) */}
+        <div className="relative w-full xl:absolute xl:bottom-0 xl:left-0 z-20 xl:w-2/3 p-3 bg-linear-to-br from-pink-main/60 to-blue-main/60 rounded-2xl shadow-2xl shadow-pink-main/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-pink-main/40">
           <img
-            src={grafica}
-            alt="Taller de impresión La Grafi-K - Equipamiento profesional para soluciones gráficas"
-            className="rounded-xl shadow-xl max-w-full h-auto object-cover"
-            /* Lazy loading para mejorar la velocidad */
-            loading="lazy"
+            src={grafica2}
+            alt="Operario de maquinaria"
+            className="rounded-xl shadow-xl w-full h-auto object-cover aspect-video"
           />
         </div>
       </figure>
