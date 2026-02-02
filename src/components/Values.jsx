@@ -4,6 +4,8 @@ import {
   ClockIcon,
   UsersIcon,
   ChevronDownIcon,
+  LightBulbIcon,
+  ShieldCheckIcon
 } from "@heroicons/react/24/solid";
 import fondo from "../assets/fondoValues.jpg";
 import { useState } from "react";
@@ -19,7 +21,7 @@ export default function Values() {
     {
       title: "PRECIO",
       description:
-        "Optimizamos recursos y te asesoramos para que tu inversión rinda al máximo.",
+        "Optimizamos constantemente nuestros recursos para ofrecerte el mejor precio. Contamos con la experiencia para asesorarte y recomendarte la publicidad o papelería comercial más conveniente según tus necesidades, evitando gastos innecesarios.",
       Icon: CurrencyDollarIcon,
       colorClass: "text-blue-main",
       borderColor: "border-blue-main",
@@ -28,16 +30,16 @@ export default function Values() {
     {
       title: "CALIDAD",
       description:
-        "Dedicamos el tiempo necesario y ofrecemos garantía de satisfacción: si no quedás conforme, lo repetimos.",
+        "Dedicamos el tiempo necesario para asegurar que todo salga como corresponde. Ofrecemos Garantía de Satisfacción: si no quedás conforme, lo repetimos sin costo adicional.",
       Icon: CheckCircleIcon,
       colorClass: "text-pink-main",
       borderColor: "border-pink-main",
       bgGradient: "from-pink-main/5 via-pink-main/10 to-transparent",
     },
     {
-      title: "TIEMPO",
+      title: "PUNTUALIDAD",
       description:
-        "Cumplimos con los tiempos acordados y trabajamos para entregar a tiempo.",
+        "Jamás mentimos sobre los plazos de entrega. Si es necesario trabajar hasta tarde para cumplir, lo haremos con gratitud.",
       Icon: ClockIcon,
       colorClass: "text-yellow-main",
       borderColor: "border-yellow-main",
@@ -46,11 +48,29 @@ export default function Values() {
     {
       title: "TRATO",
       description:
-        "Atención 100% personalizada por WhatsApp, con contacto humano y cercano.",
+        "Saber escuchar y dar un trato amable es uno de nuestros grandes diferenciadores.",
       Icon: UsersIcon,
       colorClass: "text-green-main",
       borderColor: "border-green-main",
       bgGradient: "from-green-main/5 via-green-main/10 to-transparent",
+    },
+    {
+      title: "ASESORAMIENTO",
+      description:
+        "Nuestro asesoramiento es genuino y sincero, porque “Nuestra meta es tu éxito”. Ponemos nuestros 30 Años de experiencia a tu servicio.",
+      Icon: LightBulbIcon, // Ícono de bombita (ideas/solución)
+      colorClass: "text-purple-500", // Color Violeta
+      borderColor: "border-purple-500",
+      bgGradient: "from-purple-500/5 via-purple-500/10 to-transparent",
+    },
+    {
+      title: "HONESTIDAD",
+      description:
+        "Mentirle a los demás es, ante todo, mentirse uno mismo. La honestidad construye relaciones sólidas y abre puertas permanentemente, mientras que su falta las cierra para siempre.",
+      Icon: ShieldCheckIcon, // Ícono de Escudo (integridad)
+      colorClass: "text-orange-500", // Color Naranja
+      borderColor: "border-orange-500",
+      bgGradient: "from-orange-500/5 via-orange-500/10 to-transparent",
     },
   ];
 
@@ -96,7 +116,7 @@ export default function Values() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {coreValues.map((value, index) => {
             const isOpen = openIndex === index;
 
@@ -109,8 +129,6 @@ export default function Values() {
                 `}
               >
                 <div className={`absolute inset-0 bg-linesr-to-br ${value.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                
-                <div className={`absolute inset-0 border-2 ${value.borderColor} opacity-0 group-hover:opacity-30 rounded-2xl transition-all duration-500`}></div>
                 
                 <div className={`relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border-t-4
                   ${value.borderColor}
