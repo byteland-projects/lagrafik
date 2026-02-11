@@ -54,11 +54,11 @@ export default function About() {
         </p>
       </div>
 
-{/* SECCIÓN DE IMÁGENES */}
-      <figure className="relative z-10 lg:pl-10 flex flex-col gap-6 xl:block xl:min-h-[500px] animate-fade-in-up my-8 lg:my-0">
+{/* SECCIÓN DE IMÁGENES: Alineación Vertical (Columna) en todos los dispositivos */}
+      <figure className="relative z-10 lg:pl-10 flex flex-col gap-6 justify-center animate-fade-in-up my-8 lg:my-0 h-full">
         
-        {/* Imagen 1 (Fondo / Arriba) */}
-        <div className="relative w-full xl:absolute xl:top-0 xl:right-0 xl:w-2/3 p-2 bg-linear-to-tl from-blue-main/30 to-pink-main/30 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-[1.01] hover:z-30">
+        {/* Imagen 1 */}
+        <div className="relative w-xl p-2 bg-linear-to-tl from-blue-main/30 to-pink-main/30 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-[1.01]">
             <img
               src={grafica} 
               alt="Equipo de trabajo"
@@ -66,8 +66,8 @@ export default function About() {
             />
         </div>
 
-        {/* Imagen 2 (Frente / Abajo) */}
-        <div className="relative w-full xl:absolute xl:bottom-0 xl:left-0 z-20 xl:w-2/3 p-3 bg-linear-to-br from-pink-main/60 to-blue-main/60 rounded-2xl shadow-2xl shadow-pink-main/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-pink-main/40">
+        {/* Imagen 2 */}
+        <div className="relative w-xl p-3 bg-linear-to-br from-pink-main/60 to-blue-main/60 rounded-2xl shadow-2xl shadow-pink-main/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-pink-main/40">
           <img
             src={grafica2}
             alt="Operario de maquinaria"
