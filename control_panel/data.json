@@ -21,6 +21,36 @@
     },
     {
       "id": 2,
+      "nombre": "Campañas en Meta Ads",
+      "descripcion": "Campañas únicas, sin gastos fijos ni suscripciones mensuales.",
+      "detalle": "Te invitamos a probar esta modalidad para ver resultados reales y directos en tu negocio sin compromisos a largo plazo.",
+      "imagenes": [
+        "/imagenes/metaads.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null,
+      "tipo": null,
+      "otros": null
+    },
+    {
+      "id": 3,
+      "nombre": "Manejo de redes",
+      "descripcion": "Ganá tiempo mientras tu publicidad se mantiene constante.",
+      "detalle": "Nos encargamos de que tu marca esté siempre activa y presente, permitiéndote enfocarte en lo que mejor hacés mientras nosotros gestionamos tu comunidad.",
+      "imagenes": [
+        "/imagenes/redes.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null,
+      "tipo": null,
+      "otros": null
+    },
+    {
+      "id": 4,
       "nombre": "Menú digital",
       "descripcion": "Mostrá tus productos de forma práctica y moderna.",
       "detalle": "Un menú visual, práctico y fácil de actualizar. Ideal para mejorar la presentación de tu negocio y aumentar tus ventas.",
@@ -35,7 +65,7 @@
       "otros": null
     },
     {
-      "id": 3,
+      "id": 5,
       "nombre": "Diseño de logos",
       "descripcion": "Un logo profesional que represente tu marca.",
       "detalle": "Creamos un logo estético y funcional, pensado para destacar y transmitir la identidad de tu negocio.",
@@ -52,7 +82,7 @@
   ],
   "fisicos": [
     {
-      "id": 4,
+      "id": 6,
       "nombre": "Folletos offset color",
       "descripcion": "La forma más directa y económica de llegar a tus vecinos.",
       "detalle": "Los folletos permiten llevar tu negocio a TODOS los hogares de tu zona, incluso donde las redes no llegan.",
@@ -78,7 +108,7 @@
       "otros": null
     },
     {
-      "id": 5,
+      "id": 7,
       "nombre": "Folletos láser color",
       "descripcion": "Impresión de alta calidad con rápida entrega.",
       "detalle": "La tecnología laser permite una rapidez de entrega insuperable sin comprometer la nitidez del color. Ideal para pedidos urgentes.",
@@ -104,7 +134,7 @@
       "otros": null
     },
     {
-      "id": 6,
+      "id": 8,
       "nombre": "Tarjetas personales",
       "descripcion": "Transmiten profesionalismo, redireccionan a tus redes.",
       "detalle": "Ideales para dejar una buena impresión y ampliar tu red de contactos de forma simple y efectiva.",
@@ -129,7 +159,7 @@
       "otros": null
     },
     {
-      "id": 7,
+      "id": 9,
       "nombre": "Stickers troquelados",
       "descripcion": "Ideales para dar valor y reforzar tu marca.",
       "detalle": "Para utilizar en principalmente en packagings.",
@@ -151,7 +181,7 @@
       "otros": null
     },
     {
-      "id": 8,
+      "id": 10,
       "nombre": "Volantes",
       "descripcion": "Publicidad rápida y efectiva para repartir masivamente.",
       "detalle": "Ideales para promociones temporales y llegada directa a clientes potenciales.",
@@ -176,7 +206,7 @@
       "otros": null
     },
     {
-      "id": 9,
+      "id": 11,
       "nombre": "Imanes",
       "descripcion": "Publicidad útil y visible por años.",
       "detalle": "Tus datos quedan siempre a la vista del cliente. Perfectos para servicios y deliverys.",
@@ -196,7 +226,7 @@
       "otros": null
     },
     {
-      "id": 10,
+      "id": 12,
       "nombre": "Talonarios / Planillas",
       "descripcion": "Orden y profesionalismo para tu emprendimiento.",
       "detalle": "Facilitan la organización diaria y mejoran la presentación de tus procesos.",
@@ -211,7 +241,7 @@
       "otros": null
     },
     {
-      "id": 11,
+      "id": 13,
       "nombre": "Banners",
       "descripcion": "Grandes, llamativos e ideales para promociones.",
       "detalle": "Atraen miradas al instante y se usan en negocios, eventos, fiestas y más.",
@@ -231,7 +261,7 @@
       "otros": null
     },
     {
-      "id": 12,
+      "id": 14,
       "nombre": "Señalización",
       "descripcion": "Carteles plásticos resistentes y duraderos.",
       "detalle": "Perfectos para indicar, decorar o informar en cualquier espacio.",
@@ -252,7 +282,7 @@
       "otros": null
     },
     {
-      "id": 13,
+      "id": 15,
       "nombre": "Pancartas",
       "descripcion": "Económicas, visibles y efectivas para difundir.",
       "detalle": "Ideales para lugares estratégicos y campañas de alta exposición.",
@@ -272,7 +302,7 @@
       "otros": null
     },
     {
-      "id": 14,
+      "id": 16,
       "nombre": "Plotter (Vinilo cortado)",
       "descripcion": "Vinilo de alta durabilidad para vidrieras y autos.",
       "detalle": "Dura hasta tres veces más que lo impreso. Ideal para marcas y cartelería.",
@@ -287,7 +317,7 @@
       "otros": null
     },
     {
-      "id": 15,
+      "id": 17,
       "nombre": "Fotos",
       "descripcion": "Edición e impresión profesional sin complicaciones.",
       "detalle": "Ajustamos tamaño, luz y color para que tus fotos queden perfectas.",
@@ -307,7 +337,7 @@
       "otros": null
     },
     {
-      "id": 16,
+      "id": 18,
       "nombre": "Etiquetas plásticas",
       "descripcion": "Elegantes y modernas para destacar tu producto.",
       "detalle": "Aumentan la percepción de calidad y hacen que tu marca se vea más profesional.",
@@ -322,7 +352,7 @@
       "otros": null
     },
     {
-      "id": 17,
+      "id": 19,
       "nombre": "Plastificados",
       "descripcion": "Protección rígida para documentos y fotos.",
       "detalle": "Ideales para exterior, humedad o uso frecuente. Resistentes y prácticos.",
@@ -344,7 +374,7 @@
       "otros": null
     },
     {
-      "id": 18,
+      "id": 20,
       "nombre": "Llaveros",
       "descripcion": "Un regalo útil que mantiene tu marca presente.",
       "detalle": "Los clientes los usan todos los días, por eso son tan efectivos como publicidad.",
@@ -359,7 +389,7 @@
       "otros": null
     },
     {
-      "id": 19,
+      "id": 21,
       "nombre": "Cartelería",
       "descripcion": "Soluciones visuales de gran formato para tu marca.",
       "detalle": "Carteles diseñados para máxima visibilidad y resistencia en diferentes entornos.",
