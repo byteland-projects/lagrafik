@@ -3,7 +3,7 @@
     {
       "id": 1,
       "nombre": "Menú digital",
-      "descripcion": "Mostrá tus productos de forma moderna y editable al instante.",
+      "descripcion": "Mostrá tus productos de forma práctica y moderna.",
       "detalle": "Un menú visual, práctico y fácil de actualizar. Ideal para mejorar la presentación de tu negocio y aumentar tus ventas.",
       "imagenes": [
         "/imagenes/menudigital.png"
@@ -45,7 +45,7 @@
       "id": 4,
       "nombre": "Folletos offset color",
       "descripcion": "La forma más directa y económica de llegar a tus vecinos.",
-      "detalle": "Los folletos permiten difundir tu negocio a todos los hogares de tu zona, incluso sin redes sociales.",
+      "detalle": "Los folletos permiten llevar tu negocio a TODOS los hogares de tu zona, incluso dónde las redes no llegan.",
       "imagenes": [
         "/imagenes/folletos1.png",
         "/imagenes/folletos2.png"
@@ -92,7 +92,7 @@
     {
       "id": 6,
       "nombre": "Tarjetas personales",
-      "descripcion": "Transmiten profesionalismo y refuerzan tu marca.",
+      "descripcion": "Transmiten profesionalismo, redireccionan a tus redes.",
       "detalle": "Ideales para dejar una buena impresión y ampliar tu red de contactos de forma simple y efectiva.",
       "imagenes": [
         "/imagenes/tarjetas1.png",
@@ -115,15 +115,21 @@
     {
       "id": 7,
       "nombre": "Stickers troquelados",
-      "descripcion": "Versátiles y perfectos para reforzar tu marca.",
-      "detalle": "Sirven para packaging, señalización, promociones y más. Económicos y muy visibles.",
+      "descripcion": "Ideales para dar valor y reforzar tu marca.",
+      "detalle": "Para utilizar en principalmente en packagings.",
       "imagenes": [
         "/imagenes/stickers troquelados1.jpg",
         "/imagenes/stickers troquelados2.png"
       ],
       "medidas": null,
-      "material": null,
-      "cantidad": null,
+      "material": [
+        "papel",
+        "plástico"
+      ],
+      "cantidad": [
+        "menos de 100",
+        "mas de 100"
+      ],
       "faz": null
     },
     {
@@ -152,12 +158,17 @@
     {
       "id": 9,
       "nombre": "Imanes",
-      "descripcion": "Publicidad útil y visible todo el año.",
+      "descripcion": "Publicidad útil y visible por años.",
       "detalle": "Tus datos quedan siempre a la vista del cliente. Perfectos para servicios y deliverys.",
       "imagenes": [
         "/imagenes/imanes.png"
       ],
-      "medidas": null,
+      "medidas": [
+        "6x4",
+        "7x5",
+        "8x6"
+        "Personalizada"
+      ],
       "material": null,
       "cantidad": null,
       "faz": null
@@ -183,7 +194,12 @@
       "imagenes": [
         "/imagenes/banners.png"
       ],
-      "medidas": null,
+      "medidas": [
+        "50x100",
+        "60x120",
+        "70x140",
+        "90x190"
+      ],
       "material": null,
       "cantidad": null,
       "faz": null
@@ -197,8 +213,14 @@
         "/imagenes/señalizacion.png"
       ],
       "medidas": null,
-      "material": null,
-      "cantidad": null,
+      "material":  [
+        "Alto impacto",
+        "Corrugado plástico"
+      ],
+      "cantidad": [
+        "x unidad",
+        "x cantidad"
+      ],
       "faz": null
     },
     {
@@ -209,7 +231,12 @@
       "imagenes": [
         "/imagenes/pancartas.png"
       ],
-      "medidas": null,
+      "medidas": [
+        "25x35",
+        "35x50",
+        "50x70",
+        "Otra"
+      ],
       "material": null,
       "cantidad": null,
       "faz": null
@@ -235,7 +262,12 @@
       "imagenes": [
         "/imagenes/fotos.png"
       ],
-      "medidas": null,
+      "medidas": [
+        "10x15",
+        "13x18",
+        "15x20",
+        "Polaroids"
+      ],
       "material": null,
       "cantidad": null,
       "faz": null
@@ -261,9 +293,16 @@
       "imagenes": [
         "/imagenes/plastificados.png"
       ],
-      "medidas": null,
+      "medidas": [
+        "Credencial",
+        "A5",
+        "A4"
+      ],
       "material": null,
-      "cantidad": null,
+      "cantidad": [
+        "x unidad",
+        "x cantidad"
+      ],
       "faz": null
     },
     {
