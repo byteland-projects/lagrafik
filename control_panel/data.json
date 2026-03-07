@@ -2,26 +2,30 @@
   "digitales": [
     {
       "id": 1,
-      "nombre": "Menú digital",
-      "descripcion": "Mostrá tus productos de forma práctica y moderna.",
-      "detalle": "Un menú visual, práctico y fácil de actualizar. Ideal para mejorar la presentación de tu negocio y aumentar tus ventas.",
+      "nombre": "Packs de flyers",
+      "descripcion": "Flyers listos para publicar y atraer más clientes.",
+      "detalle": "Diseños pensados para captar atención y comunicar tus promos sin perder tiempo. Ideales para redes y WhatsApp.",
       "imagenes": [
-        "/imagenes/menudigital.png"
+        "/imagenes/flyers.png"
       ],
       "medidas": null,
       "material": null,
-      "cantidad": null,
+      "cantidad": [
+        "x unidad",
+        "pack único",
+        "packs mensuales"
+      ],
       "faz": null,
       "tipo": null,
       "otros": null
     },
     {
       "id": 2,
-      "nombre": "Packs de flyers",
-      "descripcion": "Flyers listos para publicar y atraer más clientes.",
-      "detalle": "Diseños pensados para captar atención y comunicar tus promos sin perder tiempo. Ideales para redes y WhatsApp.",
+      "nombre": "Menú digital",
+      "descripcion": "Mostrá tus productos de forma práctica y moderna.",
+      "detalle": "Un menú visual, práctico y fácil de actualizar. Ideal para mejorar la presentación de tu negocio y aumentar tus ventas.",
       "imagenes": [
-        "/imagenes/flyers.png"
+        "/imagenes/menudigital.png"
       ],
       "medidas": null,
       "material": null,
