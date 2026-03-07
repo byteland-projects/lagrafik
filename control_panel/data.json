@@ -11,7 +11,9 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 2,
@@ -24,7 +26,9 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 3,
@@ -37,7 +41,9 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     }
   ],
   "fisicos": [
@@ -45,7 +51,7 @@
       "id": 4,
       "nombre": "Folletos offset color",
       "descripcion": "La forma más directa y económica de llegar a tus vecinos.",
-      "detalle": "Los folletos permiten llevar tu negocio a TODOS los hogares de tu zona, incluso dónde las redes no llegan.",
+      "detalle": "Los folletos permiten llevar tu negocio a TODOS los hogares de tu zona, incluso donde las redes no llegan.",
       "imagenes": [
         "/imagenes/folletos1.png",
         "/imagenes/folletos2.png"
@@ -63,7 +69,9 @@
       "faz": [
         "Simple",
         "Doble"
-      ]
+      ],
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 5,
@@ -87,7 +95,9 @@
       "faz": [
         "Simple",
         "Doble"
-      ]
+      ],
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 6,
@@ -110,7 +120,9 @@
       "faz": [
         "Simple",
         "Doble"
-      ]
+      ],
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 7,
@@ -130,7 +142,9 @@
         "menos de 100",
         "mas de 100"
       ],
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 8,
@@ -153,7 +167,9 @@
       "faz": [
         "Simple",
         "Doble"
-      ]
+      ],
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 9,
@@ -171,7 +187,9 @@
       ],
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 10,
@@ -184,7 +202,9 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 11,
@@ -202,7 +222,9 @@
       ],
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 12,
@@ -221,7 +243,9 @@
         "x unidad",
         "x cantidad"
       ],
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 13,
@@ -239,7 +263,9 @@
       ],
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 14,
@@ -252,7 +278,9 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 15,
@@ -270,7 +298,9 @@
       ],
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 16,
@@ -283,7 +313,9 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 17,
@@ -303,7 +335,9 @@
         "x unidad",
         "x cantidad"
       ],
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
     },
     {
       "id": 18,
@@ -316,7 +350,24 @@
       "medidas": null,
       "material": null,
       "cantidad": null,
-      "faz": null
+      "faz": null,
+      "tipo": null,
+      "otros": null
+    },
+    {
+      "id": 19,
+      "nombre": "Cartelería",
+      "descripcion": "Soluciones visuales de gran formato para tu marca.",
+      "detalle": "Carteles diseñados para máxima visibilidad y resistencia en diferentes entornos.",
+      "imagenes": [
+        "/imagenes/carteleria.png"
+      ],
+      "medidas": null,
+      "material": null,
+      "cantidad": null,
+      "faz": null,
+      "tipo": null,
+      "otros": null
     }
   ]
 }
