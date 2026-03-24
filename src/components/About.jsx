@@ -54,20 +54,19 @@ export default function About() {
         </p>
       </div>
 
-{/* SECCIÓN DE IMÁGENES: Alineación Vertical (Columna) en todos los dispositivos */}
+      {/* SECCIÓN DE IMÁGENES: Alineación Vertical (Columna) en todos los dispositivos */}
       <figure className="relative z-10 lg:pl-10 flex flex-col gap-6 justify-center animate-fade-in-up my-8 lg:my-0 h-full">
-        
         {/* Imagen 1 */}
-        <div className="relative w-xl p-2 bg-linear-to-tl from-blue-main/30 to-pink-main/30 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-[1.01]">
-            <img
-              src={grafica} 
-              alt="Equipo de trabajo"
-              className="rounded-xl w-full h-auto object-cover aspect-video grayscale-30 hover:grayscale-0 transition-all duration-500"
-            />
+        <div className="relative w-full max-w-xl p-2 bg-linear-to-tl from-blue-main/30 to-pink-main/30 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-[1.01]">
+          <img
+            src={grafica}
+            alt="Equipo de trabajo"
+            className="rounded-xl w-full h-auto object-cover aspect-video grayscale-30 hover:grayscale-0 transition-all duration-500"
+          />
         </div>
 
         {/* Imagen 2 */}
-        <div className="relative w-xl p-3 bg-linear-to-br from-pink-main/60 to-blue-main/60 rounded-2xl shadow-2xl shadow-pink-main/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-pink-main/40">
+        <div className="relative w-full max-w-xl p-3 bg-linear-to-br from-pink-main/60 to-blue-main/60 rounded-2xl shadow-2xl shadow-pink-main/20 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-pink-main/40">
           <img
             src={grafica2}
             alt="Operario de maquinaria"
