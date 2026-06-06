@@ -112,12 +112,12 @@ export default function Footer() {
         <p className="text-sm">
             © {new Date().getFullYear()} Sitio desarrollado por{" "}
             <a
-              href="https://byteland.com.ar"
+              href="https://entercode.com.ar"
               target="_blank"
               rel="noopener noreferrer"
               className='font-semibold bg-linear-to-r from-pink-main via-blue-main to-yellow-main bg-clip-text text-transparent hover:text-white'
             >
-              Byteland
+              EnterCode
             </a>
             . Todos los derechos reservados.
           </p>
